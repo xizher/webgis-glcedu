@@ -1,0 +1,2 @@
+# webgis-glcedu
+WebGIS应用系统实践：基于Globeland30全球地表覆盖数据的辅助地理教学系统
