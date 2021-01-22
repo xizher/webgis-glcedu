@@ -1,0 +1,26 @@
+{
+  "name": "test",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "vue": "^3.0.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/eslint-parser": "^7.12.1",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@vue/compiler-sfc": "^3.0.4",
+    "compression-webpack-plugin": "^6.1.1",
+    "eslint": "^7.18.0",
+    "eslint-plugin-vue": "^7.5.0",
+    "sass": "^1.32.5",
+    "sass-loader": "^10.1.1",
+    "vite": "^1.0.0-rc.13",
+    "webpack": "^4.46.0"
+  }
+}

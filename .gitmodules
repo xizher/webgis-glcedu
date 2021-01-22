@@ -1,0 +1,3 @@
+[submodule "src/wxz"]
+	path = src/wxz
+	url = https://github.com/xizher/wxz.git

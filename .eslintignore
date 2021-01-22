@@ -1,0 +1,7 @@
+public/*
+dist/*
+vue.config.js
+*.d.ts
+
+# src/ext
+# src/map
