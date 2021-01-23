@@ -52,6 +52,7 @@ module.exports = {
 ```shell
 # in src
 git submodule add https://github.com/xizher/wxz.git
+git submodule update --init --recursive
 ```
 
 根目录在创建`babel.config.js`，并安装babel相关模块来匹配该模块的Eslint配置`npm i -D @babel/core @babel/eslint-parser @babel/plugin-proposal-class-properties @babel/plugin-transform-runtime @babel/preset-env`
