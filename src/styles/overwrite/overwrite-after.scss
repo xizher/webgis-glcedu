@@ -1,0 +1,11 @@
+/*
+ * 去除View容器触发鼠标焦点状态时产生的边框
+ */
+.esri-view {
+  &:focus { outline: none; }
+  .esri-view-surface--inset-outline:focus::after {
+    outline: auto 0px Highlight !important;
+    outline: auto 0px -webkit-focus-ring-color !important;
+  }
+}
+

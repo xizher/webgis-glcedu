@@ -1,0 +1,230 @@
+@import '../functions/functions';
+@import '../constants/constants';
+
+body {
+  max-width: 100vw;
+  max-height: 100vw;
+  overflow: hidden;
+}
+.app-container {
+  @include size-conf(100vw, 100vh);
+  background-color: $bg-color;
+
+  .map-box {
+    @include size-conf(100%, 100%);
+    display: flex;
+    > * { // 等分布局，为了地图分屏用
+      flex-grow: 1
+    }
+  }
+
+  .header-title {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    z-index: $max-z-index;
+    @include size-conf(320px, 100px);
+    transform:rotate(4deg);
+    background-image: url(./images/header-title.png);
+    @include background-conf(no-repeat, center, 100% 100%);
+  }
+
+}
+
+
+.operation-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  pointer-events: none;
+
+  .vue-view-welcome,
+  .vue-view-natural-difference,
+  .vue-view-urbanization {
+    @include size-conf(100%, 100%);
+    > .pointer-event-auto {
+      pointer-events: auto;
+    }
+    > * {
+      position: absolute;
+    }
+  }
+  
+  .vue-view-welcome {
+    @include size-conf(200%, 100%); // 2倍宽度是为了转场动画的连贯性
+    background-image: url(./images/bg-vue-view-welcome.png);
+    @include background-conf(no-repeat, 40px center, auto 64%);
+    background-color: #00000075;
+    .signalizer {
+      // position: relative; // 用绝对定位的话，在路由转场时会没有动画，直接消失或出现
+      left: 20vw;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .title {
+        @include size-conf(120px, 120px);
+        background-image: url(./images/rectangle2.png);
+        @include background-conf(no-repeat, center, 100% 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 44px;
+        font-family: 华光中雅_CNKI;
+      }
+      .arraw {
+        @include size-conf(120px, 120px);
+        background-image: url(./images/arrow.png);
+        @include background-conf(no-repeat, center, 100% 100%);
+      }
+      .item {
+        display: flex;
+        flex-direction: column;
+        height: 50vh;
+        justify-content: space-between;
+      }
+      .name {
+        @include size-conf(220px, 60px);
+        line-height: 60px;
+        text-align: center;
+        font-family: 华光中雅_CNKI;
+        background-image: url(./images/rectangle.png);
+        @include background-conf(no-repeat, center, 100% 100%);
+      }
+    }
+    .theme-selector {
+      position: relative; // 用绝对定位的话，在路由转场时会没有动画，直接消失或出现
+      left: 61vw;
+      height: 100%;
+      width: 38vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      pointer-events: none;
+      > * {
+        pointer-events: auto;
+      }
+    }
+    .to-natural-difference {
+      background-image: url(./images/to-natural-difference.png);
+    }
+    .to-urbanization {
+      background-image: url(./images/to-urbanization.png);
+    }
+    .to-natural-difference,
+    .to-urbanization {
+      @include size-conf(36vh, 36vh);
+      border-radius: 180vh;
+      @include background-conf(no-repeat, center, 96% 96%);
+      background-color: white;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, .8), 0 0 6px rgba(0, 0, 0, .04);
+      cursor: pointer;
+      opacity: .5;
+      transition: .3s;
+      &:hover {
+        opacity: .8;
+        @include size-conf(38vh, 38vh);
+      }
+    }
+  }
+
+}
+
+/*
+ * 
+ */
+.subtheme-natural-difference-grassland,
+.subtheme-natural-difference-kilimanjaro {
+  @include background-conf(no-repeat, center, 100% 100%);
+  box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  opacity: .8;
+  &:hover {
+    box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.4);
+  }
+}
+
+.subtheme-natural-difference-grassland {
+  height: 100px;
+  width: 200px;
+  background-image: url(./images/grassland.png);
+}
+
+.subtheme-natural-difference-kilimanjaro {
+  height: 120px;
+  width: 160px;
+  background-image: url(./images/kilimanjaro.png);
+}
+
+.subtheme-urbanization-selector {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  pointer-events: none;
+  > * {
+    pointer-events: auto;
+  }
+
+  .subtheme-urbanization-item {
+    @include size-conf(24vh, 24vh);
+    @include background-conf(no-repeat, center, 100% 100%);
+    // box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    opacity: .8;
+    transition: .3s;
+    &:hover {
+      @include size-conf(28vh, 28vh);
+      opacity: .9;
+      // box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.4);
+    }
+  }
+  .subtheme-urbanization-statistics {
+    background-image: url(./images/urbanization-statistics.png);
+  }
+  .subtheme-urbanization-swipe {
+    background-image: url(./images/urbanization-swipe.png);
+  }
+  .subtheme-urbanization-split-screen {
+    background-image: url(./images/urbanization-split-screen.png);
+  }
+}
+
+.theme-header-panel {
+  top: -1px;
+  left: 50%;
+  z-index: $max-z-index;
+  transform: translateX(-50%);
+  @include size-conf(260px, 95px);
+  background-image: url(./images/theme-header-panel.png);
+  @include background-conf(no-repeat, center, 100% 100%);
+  .title {
+    margin-top: 40px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: $deep-yellow;
+    font-family: 华光中雅_CNKI;
+    cursor: default;
+  }
+}
+
+.back-to-welcome-view {
+  top: 24px;
+  right: 24px;
+  z-index: $max-z-index;
+  @include size-conf(180px, 72px);
+  background-image: url(./images/back-to-welcome-view.png);
+  @include background-conf(no-repeat, center, 100% 100%);
+  cursor: pointer;
+  &:hover {
+    transform:rotate(-4deg);
+  }
+}

@@ -1,0 +1,23 @@
+/* 移入移出动画 */
+.slide-fade-enter-active {
+  transition: all .8s ease-out;
+}
+
+.slide-fade-leave-active {
+  position: absolute; // 解决路由之间组件转场时可能产生的移位
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(-64px);
+  opacity: 0;
+}
+
+/* 阴影 */
+.base-box-shadow {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, .8), 0 0 6px rgba(0, 0, 0, .04);
+}
+.shallow-box-shadow {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}

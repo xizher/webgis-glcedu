@@ -1,25 +1,38 @@
 <template>
-  <div
-    id="view-container"
-    style="height: 100vh; width: 100vw"
-  />
+  <div class="app-container">
+    <div class="header-title" />
+    <div class="map-box">
+      <div id="webmap-container" />
+    </div>
+    <div
+      v-if="loaded"
+      class="operation-container"
+    >
+      <!-- 路由转场动画  -->
+      <router-view v-slot="{ Component }">
+        <transition name="slide-fade">
+          <component :is="Component" />
+        </transition>
+      </router-view>
+    </div>
+  </div>
 </template>
 
 <script>
-import { onMounted } from 'vue'
-import appConfig from './config/app.config'
-import { WebMap } from './wxz/src/gis/esri'
+import { ref } from 'vue'
+import { useWebMap, useCreateWebMap } from './project/hooks/useWebMap'
 export default {
   name: 'App',
   setup () {
-    const webMap = new WebMap('view-container', appConfig.webMapOptions)
-    onMounted(() => {
-      webMap.load()
-    })
+    useCreateWebMap('webmap-container')
+    const webMap = useWebMap()
     window.webMap = webMap // 方便控制类调试用的
 
-    return {
+    const loaded = ref(false)
+    webMap.on('loaded', () => loaded.value = true)
 
+    return {
+      loaded
     }
   }
 }

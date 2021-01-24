@@ -1,0 +1,16 @@
+/*
+ * 样式函数
+ */
+
+@mixin background-conf($repeat, $position, $size) { // 背景布局配置
+  background: {
+    repeat: $repeat;
+    position: $position;
+    size: $size;
+  }
+}
+
+@mixin size-conf($width, $height) { // 宽高配置
+  width: $width;
+  height: $height;
+}
