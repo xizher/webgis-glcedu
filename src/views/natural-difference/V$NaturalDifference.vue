@@ -5,11 +5,21 @@
     <div
       class="subtheme-natural-difference-grassland pointer-event-auto"
       :style="styleDiffByLon"
-    />
+      @click="goto('/natural-difference-longitude')"
+    >
+      <div class="title">
+        经度地带性分异规律
+      </div>
+    </div>
     <div
       class="subtheme-natural-difference-kilimanjaro pointer-event-auto"
       :style="styleDiffByAlt"
-    />
+      @click="goto('/natural-difference-altitude')"
+    >
+      <div class="title">
+        垂直地带性分异规律
+      </div>
+    </div>
   </div>
 </template>
 
@@ -20,6 +30,7 @@ import {
   ThemeHeaderPanel,
 } from '../../components/app'
 import { useNaturalDifference } from '../../project/hooks/useTheme'
+import { useRouter } from 'vue-router'
 export default {
   name: 'NaturalDifference',
   components: {
@@ -28,10 +39,14 @@ export default {
   },
   setup () {
     const { styleDiffByLon, styleDiffByAlt } = useNaturalDifference()
-
+    const router = useRouter()
+    const goto = path => {
+      router.push(path)
+    }
     return {
       styleDiffByLon,
       styleDiffByAlt,
+      goto,
     }
   }
 }

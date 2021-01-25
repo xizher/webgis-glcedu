@@ -3,6 +3,12 @@
     <div class="title">
       {{ title }}
     </div>
+    <div
+      v-if="subTitle"
+      class="subtitle"
+    >
+      ——{{ subTitle }}
+    </div>
   </div>
 </template>
 

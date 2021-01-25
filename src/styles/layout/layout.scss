@@ -42,7 +42,12 @@ body {
 
   .vue-view-welcome,
   .vue-view-natural-difference,
-  .vue-view-urbanization {
+  .vue-view-natural-difference-altitude,
+  .vue-view-natural-difference-longitude,
+  .vue-view-urbanization,
+  .vue-view-urbanization-statistics,
+  .vue-view-urbanization-swipe,
+  .vue-view-urbanization-split-screen {
     @include size-conf(100%, 100%);
     > .pointer-event-auto {
       pointer-events: auto;
@@ -146,6 +151,21 @@ body {
   opacity: .8;
   &:hover {
     box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.4);
+    .title {
+      background-image: url(./images/rounded-rectangle2.png);
+    }
+  }
+  .title {
+    @include size-conf(180px, 60px);
+    position: absolute;
+    top: -65px;
+    left: 50%;
+    transform: translateX(-50%);
+    @include background-conf(no-repeat, center, 100% 100%);
+    background-image: url(./images/rounded-rectangle.png);
+    line-height: 60px;
+    text-align: center;
+    font-family: 华光中雅_CNKI;
   }
 }
 
@@ -175,7 +195,11 @@ body {
   }
 
   .subtheme-urbanization-item {
+    position: relative;
     @include size-conf(24vh, 24vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     @include background-conf(no-repeat, center, 100% 100%);
     // box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.4);
     cursor: pointer;
@@ -185,6 +209,22 @@ body {
       @include size-conf(28vh, 28vh);
       opacity: .9;
       // box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.4);
+      ::before {
+        content: ' ';
+        position: absolute;
+        bottom: -90px;
+        left: 50%;
+        transform: translateX(-50%);
+        @include size-conf(40px, 75px);
+        display: inline-block;
+        background-image: url(./images/array2.png);
+        @include background-conf(no-repeat, center, 100% 100%);
+      }
+    }
+    .title {
+      text-shadow: .2rem 0rem .5rem white,-.2rem 0rem .5rem white,0rem .2rem .5rem white,0rem -.2rem .5rem white;
+      font-family: 华光中雅_CNKI;
+      font-size: 20px;
     }
   }
   .subtheme-urbanization-statistics {
@@ -204,15 +244,22 @@ body {
   z-index: $max-z-index;
   transform: translateX(-50%);
   @include size-conf(260px, 95px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-image: url(./images/theme-header-panel.png);
   @include background-conf(no-repeat, center, 100% 100%);
+  font-family: 华光中雅_CNKI;
+  color: $deep-yellow;
+  letter-spacing: 2px;
+  cursor: default;
   .title {
-    margin-top: 40px;
+    padding-top: 10px;
     font-size: 20px;
-    letter-spacing: 2px;
-    color: $deep-yellow;
-    font-family: 华光中雅_CNKI;
-    cursor: default;
+  }
+  .subtitle {
+    text-align: right;
+    margin-right: 10px;
   }
 }
 

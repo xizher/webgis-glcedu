@@ -14,9 +14,29 @@ const routes = [
     name: 'NaturalDifference',
     component: () => import('../views/natural-difference/V$NaturalDifference.vue')
   }, {
+    path: '/natural-difference-longitude',
+    name: 'NaturalDifferenceByLongitude',
+    component: () => import('../views/natural-difference/V$NaturalDifferenceByLongitude.vue')
+  }, {
+    path: '/natural-difference-altitude',
+    name: 'NaturalDifferenceByAltitude',
+    component: () => import('../views/natural-difference/V$NaturalDifferenceByAltitude.vue')
+  }, {
     path: '/urbanization',
     name: 'Urbanization',
     component: () => import('../views/urbanization/V$Urbanization.vue')
+  }, {
+    path: '/urbanization-statistics',
+    name: 'UrbanizationStatistics',
+    component: () => import('../views/urbanization/V$UrbanizationStatistics.vue')
+  }, {
+    path: '/urbanization-swipe',
+    name: 'UrbanizationSwipe',
+    component: () => import('../views/urbanization/V$UrbanizationSwipe.vue')
+  }, {
+    path: '/urbanization-split-screen',
+    name: 'UrbanizationSplitScreen',
+    component: () => import('../views/urbanization/V$UrbanizationSplitScreen.vue')
   }
 ]
 
