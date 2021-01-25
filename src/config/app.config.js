@@ -31,5 +31,27 @@ export default {
       ],
       selectedKey: 5
     },
+    layerOperationOptions: {
+      layerList: [
+        {
+          name: '经度地带性分异规律.tiff', alias: '经度地带性分异规律', key: '0',
+          target: { type: 'ImageryLayer',
+            options: {
+              url: `${ARCGIS_SERVER_URL}//rest/services/GLC30/GLC30_Y2020_N48TO51_40/ImageServer`,
+              format: 'tiff', visible: false,
+            }
+          }
+        },
+        {
+          name: '经度地带性分异规律.png32', alias: '经度地带性分异规律', key: '1',
+          target: { type: 'ImageryLayer',
+            options: {
+              url: `${ARCGIS_SERVER_URL}//rest/services/GLC30/GLC30_Y2020_N48TO51_40/ImageServer`,
+              format: 'png32', visible: false,
+            }
+          }
+        },
+      ]
+    },
   }
 }
