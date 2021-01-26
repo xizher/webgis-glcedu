@@ -3,7 +3,7 @@ import appConfig from '../../config/app.config'
 import { WebMap } from '../../wxz/src/gis/esri'
 
 const constants = {
-  themeList: {
+  topicList: {
     '默认': Symbol('默认'),
     '自然地理环境的地域差异': Symbol('自然地理环境的地域差异'),
     '经度地带性分异规律': Symbol('经度地带性分异规律'),
@@ -24,7 +24,7 @@ const state = {
 
   /**
    * @type { {
-   *  selectedTheme: import('vue').Ref<Symbol>
+   *  selectedTopic: import('vue').Ref<Symbol>
    * } }
    */
   hooks: { }
@@ -33,21 +33,21 @@ const state = {
 class HooksRegister {
   static initHooks () {
     HooksRegister
-      .initSelectedTheme()
+      .initselectedTopic()
   }
 
-  static initSelectedTheme () {
-    const { themeList } = constants
+  static initselectedTopic () {
+    const { topicList } = constants
     const { webMap } = state
-    state.hooks.selectedTheme = ref(themeList['默认'])
-    watch(state.hooks.selectedTheme, val => {
+    state.hooks.selectedTopic = ref(topicList['默认'])
+    watch(state.hooks.selectedTopic, val => {
       switch (val) {
-      case themeList['默认']:
-      case themeList['自然地理环境的地域差异']:
-      case themeList['城市与城市化']:
+      case topicList['默认']:
+      case topicList['自然地理环境的地域差异']:
+      case topicList['城市与城市化']:
         webMap.layerOperation.setAllLayersInvisible()
         break
-      case themeList['垂直地带性分异规律']:
+      case topicList['垂直地带性分异规律']:
         webMap.layerOperation
           .setAllLayersInvisible()
           .setLayerVisible('乞力马扎罗数字高程模型.png32', true)
@@ -55,7 +55,7 @@ class HooksRegister {
           .setLayerVisible('乞力马扎罗地表覆盖.png32', true)
           .setLayerVisibleAndZoomTo('乞力马扎罗地表覆盖.tiff')
         break
-      case themeList['经度地带性分异规律']:
+      case topicList['经度地带性分异规律']:
         webMap.layerOperation
           .setAllLayersInvisible()
           .setLayerVisible('经度地带性分异规律.png32', true)

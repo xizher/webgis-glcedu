@@ -1,7 +1,7 @@
 <template>
   <div class="vue-view-natural-difference-altitude">
     <BackToWelcomeView />
-    <ThemeHeaderPanel
+    <TopicHeaderPanel
       title="自然地理环境的地域差异"
       sub-title="垂直地带性分异规律"
     />
@@ -12,14 +12,14 @@
 import { } from 'vue'
 import {
   BackToWelcomeView,
-  ThemeHeaderPanel,
+  TopicHeaderPanel,
 } from '../../components/app'
-import { useNaturalDifferenceByAltitude } from '../../project/hooks/useTheme'
+import { useNaturalDifferenceByAltitude } from '../../project/hooks/useTopic'
 export default {
   name: 'NaturalDifferenceByAltitude',
   components: {
     BackToWelcomeView,
-    ThemeHeaderPanel,
+    TopicHeaderPanel,
   },
   setup () {
     useNaturalDifferenceByAltitude()

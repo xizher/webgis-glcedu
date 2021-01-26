@@ -1,9 +1,9 @@
 <template>
   <div class="vue-view-natural-difference">
     <BackToWelcomeView />
-    <ThemeHeaderPanel title="自然地理环境的地域差异" />
+    <TopicHeaderPanel title="自然地理环境的地域差异" />
     <div
-      class="subtheme-natural-difference-grassland pointer-event-auto"
+      class="sub-topic-natural-difference-grassland pointer-event-auto"
       :style="styleDiffByLon"
       @click="goto('/natural-difference-longitude')"
     >
@@ -12,7 +12,7 @@
       </div>
     </div>
     <div
-      class="subtheme-natural-difference-kilimanjaro pointer-event-auto"
+      class="sub-topic-natural-difference-kilimanjaro pointer-event-auto"
       :style="styleDiffByAlt"
       @click="goto('/natural-difference-altitude')"
     >
@@ -27,15 +27,15 @@
 import { } from 'vue'
 import {
   BackToWelcomeView,
-  ThemeHeaderPanel,
+  TopicHeaderPanel,
 } from '../../components/app'
-import { useNaturalDifference } from '../../project/hooks/useTheme'
+import { useNaturalDifference } from '../../project/hooks/useTopic'
 import { useRouter } from 'vue-router'
 export default {
   name: 'NaturalDifference',
   components: {
     BackToWelcomeView,
-    ThemeHeaderPanel,
+    TopicHeaderPanel,
   },
   setup () {
     const { styleDiffByLon, styleDiffByAlt } = useNaturalDifference()

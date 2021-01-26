@@ -46,17 +46,17 @@ const router = createRouter({
 })
 
 router.beforeEach(({ path }) => {
-  const { selectedTheme, themeList } = useMapHooks()
+  const { selectedTopic, topicList } = useMapHooks()
   if (path === '/') {
-    selectedTheme.value = themeList['默认']
+    selectedTopic.value = topicList['默认']
   } else if (path === '/natural-difference') {
-    selectedTheme.value = themeList['自然地理环境的地域差异']
+    selectedTopic.value = topicList['自然地理环境的地域差异']
   } else if (path === '/natural-difference-longitude') {
-    selectedTheme.value = themeList['经度地带性分异规律']
+    selectedTopic.value = topicList['经度地带性分异规律']
   } else if (path === '/natural-difference-altitude') {
-    selectedTheme.value = themeList['垂直地带性分异规律']
+    selectedTopic.value = topicList['垂直地带性分异规律']
   } else if (path === '/urbanization') {
-    selectedTheme.value = themeList['城市与城市化']
+    selectedTopic.value = topicList['城市与城市化']
   }
 })
 

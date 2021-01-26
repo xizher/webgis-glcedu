@@ -14,7 +14,7 @@
         </div>
       </div>
     </div>
-    <div class="theme-selector pointer-event-auto">
+    <div class="topic-selector pointer-event-auto">
       <div
         v-for="item in items"
         :key="item"
@@ -28,7 +28,7 @@
 <script>
 import { } from 'vue'
 import { useRouter } from 'vue-router'
-import { useWelcome } from '../project/hooks/useTheme'
+import { useWelcome } from '../project/hooks/useTopic'
 export default {
   name: 'Welcome',
   setup () {

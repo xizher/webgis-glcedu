@@ -1,7 +1,7 @@
 <template>
   <div class="vue-view-natural-difference-longitude">
     <BackToWelcomeView />
-    <ThemeHeaderPanel
+    <TopicHeaderPanel
       title="自然地理环境的地域差异"
       sub-title="经度地带性分异规律"
     />
@@ -23,19 +23,19 @@
 import { computed, ref } from 'vue'
 import {
   BackToWelcomeView,
-  ThemeHeaderPanel,
+  TopicHeaderPanel,
 } from '../../components/app'
 import {
   NdblSlider,
   NdblViewer,
 } from '../../components/project'
-import { useNaturalDifferenceByLongitude } from '../../project/hooks/useTheme'
+import { useNaturalDifferenceByLongitude } from '../../project/hooks/useTopic'
 import { $esriExt, EsriUtils } from '../../wxz/src/gis/esri'
 export default {
   name: 'NaturalDifferenceByLongitude',
   components: {
     BackToWelcomeView,
-    ThemeHeaderPanel,
+    TopicHeaderPanel,
     NdblSlider,
     NdblViewer,
   },

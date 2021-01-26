@@ -1,5 +1,5 @@
 <template>
-  <div class="theme-header-panel pointer-event-auto">
+  <div class="topic-header-panel pointer-event-auto">
     <div class="title">
       {{ title }}
     </div>
@@ -15,7 +15,7 @@
 <script>
 import { } from 'vue'
 export default {
-  name: 'ThemeHeaderPanel',
+  name: 'TopicHeaderPanel',
   props: {
     title: {
       type: String,

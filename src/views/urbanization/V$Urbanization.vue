@@ -1,13 +1,13 @@
 <template>
   <div class="vue-view-urbanization">
     <BackToWelcomeView />
-    <ThemeHeaderPanel title="长三角地区城市与城市化" />
-    <div class="subtheme-urbanization-selector">
+    <TopicHeaderPanel title="长三角地区城市与城市化" />
+    <div class="sub-topic-urbanization-selector">
       <div
         v-for="item in items"
         :key="item.name"
-        class="subtheme-urbanization-item"
-        :class="`subtheme-urbanization-${item.name}`"
+        class="sub-topic-urbanization-item"
+        :class="`sub-topic-urbanization-${item.name}`"
         @click="goto(`/urbanization-${item.name}`)"
       >
         <div class="title">
@@ -22,14 +22,14 @@
 import { } from 'vue'
 import {
   BackToWelcomeView,
-  ThemeHeaderPanel,
+  TopicHeaderPanel,
 } from '../../components/app'
 import { useRouter } from 'vue-router'
 export default {
   name: 'Urbanization',
   components: {
     BackToWelcomeView,
-    ThemeHeaderPanel,
+    TopicHeaderPanel,
   },
   setup () {
     const items = [
