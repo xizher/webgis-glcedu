@@ -14,6 +14,7 @@ import {
   BackToWelcomeView,
   ThemeHeaderPanel,
 } from '../../components/app'
+import { useNaturalDifferenceByAltitude } from '../../project/hooks/useTheme'
 export default {
   name: 'NaturalDifferenceByAltitude',
   components: {
@@ -21,6 +22,7 @@ export default {
     ThemeHeaderPanel,
   },
   setup () {
+    useNaturalDifferenceByAltitude()
 
     return {
 
