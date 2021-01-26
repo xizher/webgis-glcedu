@@ -8,6 +8,7 @@
 <script>
 import { } from 'vue'
 import { useRouter } from 'vue-router'
+import './back-to-welcome-view.scss'
 export default {
   name: 'BackToWelcomeView',
   setup () {

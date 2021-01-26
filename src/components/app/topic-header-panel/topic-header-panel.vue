@@ -14,6 +14,7 @@
 
 <script>
 import { } from 'vue'
+import './topic-header-panel.scss'
 export default {
   name: 'TopicHeaderPanel',
   props: {

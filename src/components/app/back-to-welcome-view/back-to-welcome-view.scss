@@ -1,0 +1,14 @@
+@import '../../../styles/vars/vars';
+
+.back-to-welcome-view {
+  top: 24px;
+  right: 24px;
+  z-index: $max-z-index;
+  @include size-conf(180px, 72px);
+  background-image: url(./images/back-to-welcome-view.png);
+  @include background-conf(no-repeat, center, 100% 100%);
+  cursor: pointer;
+  &:hover {
+    transform:rotate(-4deg);
+  }
+}

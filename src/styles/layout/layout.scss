@@ -6,6 +6,11 @@ body {
   max-height: 100vw;
   overflow: hidden;
 }
+
+* {
+  font-family: 华光中雅_CNKI;
+}
+
 .app-container {
   @include size-conf(100vw, 100vh);
   background-color: $bg-color;
@@ -235,90 +240,5 @@ body {
   }
   .sub-topic-urbanization-split-screen {
     background-image: url(./images/urbanization-split-screen.png);
-  }
-}
-
-.topic-header-panel {
-  top: -1px;
-  left: 50%;
-  z-index: $max-z-index;
-  transform: translateX(-50%);
-  @include size-conf(260px, 95px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-image: url(./images/theme-header-panel.png);
-  @include background-conf(no-repeat, center, 100% 100%);
-  font-family: 华光中雅_CNKI;
-  color: $deep-yellow;
-  letter-spacing: 2px;
-  cursor: default;
-  .title {
-    padding-top: 10px;
-    font-size: 20px;
-  }
-  .subtitle {
-    text-align: right;
-    margin-right: 10px;
-  }
-}
-
-.back-to-welcome-view {
-  top: 24px;
-  right: 24px;
-  z-index: $max-z-index;
-  @include size-conf(180px, 72px);
-  background-image: url(./images/back-to-welcome-view.png);
-  @include background-conf(no-repeat, center, 100% 100%);
-  cursor: pointer;
-  &:hover {
-    transform:rotate(-4deg);
-  }
-}
-
-.panel-box {
-  .drap-box {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 50px;
-    cursor: move;
-  }
-  opacity: .95;
-  &:hover {
-    opacity: 1;
-  }
-}
-
-.ndbl-slider {
-  background-image: url(./images/panel.png);
-  @include background-conf(no-repeat, center, 100% 100%);
-  height: 320px;
-  width: 120px;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  padding-left: 25px;
-}
-
-.ndbl-viewer {
-  width: 1050px;
-  height: 150px;
-  padding: 50px 10px 10px 90px;
-  background-image: url(./images/panel2.png);
-  @include background-conf(no-repeat, center, 100% 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  .label-box {
-    position: absolute;
-    top: 18px;
-    left: 87px;
-    width: 960px;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid black;
-    font-family: 华光中雅_CNKI;
-    font-size: 16px;
-    font-weight: bold;
   }
 }

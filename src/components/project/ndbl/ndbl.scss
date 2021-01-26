@@ -1,0 +1,32 @@
+@import '../../../styles/vars/vars';
+
+.ndbl-slider {
+  @include size-conf(120px, 320px);
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 25px;
+  background-image: url(./images/panel.png);
+  @include background-conf(no-repeat, center, 100% 100%);
+}
+
+.ndbl-viewer {
+  @include size-conf(1050px, 150px);
+  padding: 50px 10px 10px 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(./images/panel2.png);
+  @include background-conf(no-repeat, center, 100% 100%);
+  .label-box {
+    position: absolute;
+    top: 18px;
+    left: 87px;
+    width: 960px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    font-family: 华光中雅_CNKI;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
