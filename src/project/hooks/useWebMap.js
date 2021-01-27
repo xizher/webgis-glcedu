@@ -50,7 +50,6 @@ class HooksRegister {
       case topicList['垂直地带性分异规律']:
         webMap.layerOperation
           .setAllLayersInvisible()
-          .setLayerVisible('乞力马扎罗数字高程模型.png32', true)
           .setLayerVisible('乞力马扎罗数字高程模型.tiff', true)
           .setLayerVisible('乞力马扎罗地表覆盖.png32', true)
           .setLayerVisibleAndZoomTo('乞力马扎罗地表覆盖.tiff')

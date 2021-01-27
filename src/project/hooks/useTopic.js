@@ -89,12 +89,16 @@ export function useNaturalDifference () {
   return toRefs(state)
 }
 
+/**
+ * @returns { [(type: 'glc' | 'dem') => __esri.ImageryLayer, import('vue').ComputedRef<boolean>, (type: 'glc' | 'dem') => __esri.PixelData] }
+ */
 export function useNaturalDifferenceByAltitude () {
   const webMap = useWebMap()
-  const layer = webMap.layerOperation.findLayerByName('乞力马扎罗数字高程模型.tiff')
+  const layerDEM = webMap.layerOperation.findLayerByName('乞力马扎罗数字高程模型.tiff')
+  const layerGLC = webMap.layerOperation.findLayerByName('乞力马扎罗地表覆盖.tiff')
 
 
-  layer.pixelFilter = pixelData => {
+  layerDEM.pixelFilter = pixelData => {
     if (pixelData === null || pixelData.pixelBlock === null || pixelData.pixelBlock.pixels === null) {
       return
     }
@@ -109,6 +113,36 @@ export function useNaturalDifferenceByAltitude () {
       }
     }
   }
+
+  const [loadedDEM, getPixelDataDEM] = usePixelData(layerDEM)
+  const [loadedGLC, getPixelDataGLC] = usePixelData(layerGLC)
+  const loaded = computed(() => loadedDEM.value && loadedGLC.value)
+  watch(loaded, val => {
+    if (val) {
+      layerDEM.visible = false
+      layerGLC.visible = false
+    }
+  })
+  const getPixelData = type => {
+    const _type = type.toLowerCase()
+    if (_type === 'dem') {
+      return getPixelDataDEM()
+    } else if (_type === 'glc') {
+      return getPixelDataGLC()
+    }
+    return null
+  }
+  const getLayer = type => {
+    const _type = type.toLowerCase()
+    if (_type === 'dem') {
+      return layerDEM
+    } else if (_type === 'glc') {
+      return layerGLC
+    }
+    return null
+  }
+
+  return [getLayer, loaded, getPixelData]
 }
 
 /**
@@ -117,5 +151,11 @@ export function useNaturalDifferenceByAltitude () {
 export function useNaturalDifferenceByLongitude () {
   const { layerOperation } = useWebMap()
   const layer = layerOperation.findLayerByName('经度地带性分异规律.tiff')
-  return [layer, ...usePixelData(layer)]
+  const [loaded, getPixelData] = usePixelData(layer)
+  watch(loaded, val => {
+    if (val) {
+      layer.visible = false
+    }
+  })
+  return [layer, loaded, getPixelData]
 }

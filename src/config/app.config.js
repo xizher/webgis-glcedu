@@ -27,7 +27,7 @@ export default {
         { key: 2, alias: '蓝黑色地图', name: '蓝黑色中文不含兴趣点版中国基础地图', type: 'webTileLayer', options: { urlTemplate: 'http://map.geoq.cn/arcgis/rest/services/ChinaOnlineStreetPurplishBlue/MapServer/tile/{level}/{row}/{col}' } },
         { key: 3, alias: '暖色地图', name: '暖色中文不含兴趣点版中国基础地图', type: 'webTileLayer', options: { urlTemplate: 'http://map.geoq.cn/arcgis/rest/services/ChinaOnlineStreetWarm/MapServer/tile/{level}/{row}/{col}' } },
         { key: 4, alias: 'OSM', name: 'OpenStreetMap', type: 'webTileLayer', options: { urlTemplate: 'https://{s}.tile.openstreetmap.org/{level}/{col}/{row}.png' } },
-        { key: 5, alias: '陆地轮廓地图', name: '陆地轮廓地图', type: 'webTileLayer', options: { opacity: 0.5, urlTemplate: `${ARCGIS_SERVER_URL}//rest/services/GLC30/WorldLand/MapServer/tile/{level}/{row}/{col}` } },
+        { key: 5, alias: '陆地轮廓地图', name: '陆地轮廓地图', type: 'webTileLayer', options: { opacity: 0.5, urlTemplate: `${ARCGIS_SERVER_URL}//rest/services/GLC30/WorldLand/MapServer/tile/{level}/{row}/{col}`, maxScale: 2311162.217155 } },
       ],
       selectedKey: 5
     },
@@ -51,15 +51,15 @@ export default {
             }
           }
         },
-        {
-          name: '乞力马扎罗数字高程模型.png32', alias: '乞力马扎罗数字高程模型', key: '2',
-          target: { type: 'ImageryLayer',
-            options: {
-              url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/DEM_KLMZO/ImageServer`,
-              format: 'png32', visible: false,
-            }
-          }
-        },
+        // {
+        //   name: '乞力马扎罗数字高程模型.png32', alias: '乞力马扎罗数字高程模型', key: '2',
+        //   target: { type: 'ImageryLayer',
+        //     options: {
+        //       url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/DEM_KLMZO/ImageServer`,
+        //       format: 'png32', visible: false,
+        //     }
+        //   }
+        // },
         {
           name: '乞力马扎罗数字高程模型.tiff', alias: '乞力马扎罗数字高程模型', key: '3',
           target: { type: 'ImageryLayer',

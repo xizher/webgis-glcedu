@@ -84,6 +84,7 @@ export default {
   .drap-box {
     position: absolute;
     top: 0;
+    z-index: 2;
     width: 100%;
     height: 50px;
     cursor: move;

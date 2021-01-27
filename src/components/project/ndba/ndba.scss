@@ -1,0 +1,42 @@
+@import '../../../styles/vars/vars';
+
+
+.ndba-surface {
+  @include size-conf(550px, 350px);
+  background-image: url(./images/panel2.png);
+  @include background-conf(no-repeat, center, 100% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .chart-ndba-surface {
+    @include size-conf(95%, 80%);
+  }
+}
+
+.ndba-profile {
+  @include size-conf(400px, 400px);
+  background-image: url(./images/panel.png);
+  @include background-conf(no-repeat, center, 100% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .chart-ndba-profile {
+    @include size-conf(95%, 85%);
+  }
+
+  .btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+  }
+}
+
+.draw-profile-tool-switch {
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .8), 0 0 6px rgba(0, 0, 0, .04);
+}
