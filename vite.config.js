@@ -1,8 +1,10 @@
-const webpack = require('webpack')
-const CompressionWebpackPlugin = require('compression-webpack-plugin')
+import webpack from 'webpack'
+import CompressionWebpackPlugin from 'compression-webpack-plugin'
 const productionGzipExtensions = ['js', 'css']
 
-module.exports = {
+// import babel from '@rollup/plugin-babel'
+
+export default {
   port: 8080,
   publicPath: './',
   productionSourceMap: false,
@@ -21,4 +23,7 @@ module.exports = {
       })
     ],
   },
+  // plugins: [
+  //   babel()
+  // ]
 }

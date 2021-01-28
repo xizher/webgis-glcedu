@@ -17,8 +17,10 @@
     "@babel/core": "^7.12.10",
     "@babel/eslint-parser": "^7.12.1",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-private-methods": "^7.12.1",
     "@babel/plugin-transform-runtime": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
+    "@rollup/plugin-babel": "^5.2.2",
     "@types/arcgis-js-api": "^4.17.0",
     "@types/echarts": "^4.9.3",
     "@vue/compiler-sfc": "^3.0.4",
@@ -28,6 +30,7 @@
     "sass": "^1.32.5",
     "sass-loader": "^10.1.1",
     "vite": "^1.0.0-rc.13",
+    "vite-babel-plugin": "0.0.2",
     "webpack": "^4.46.0"
   }
 }
