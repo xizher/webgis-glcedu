@@ -90,10 +90,14 @@ export class NdbaProfileTool extends DrawTool {
           },
           series: [
             {
+              lineStyle: {
+                width: 5
+              },
               name: '用电量',
               type: 'line',
               smooth: true,
               data: demData,
+              areaStyle: {},
             }
           ]
         })

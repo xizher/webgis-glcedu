@@ -4,6 +4,8 @@
     :key="item.id"
     bottom="20px"
     left="50px"
+    @mouseover="onTouchChart(index)"
+    @mouseleave="onUntouchChart"
   >
     <div
       class="ndba-profile"
@@ -56,7 +58,7 @@ export default {
     },
   },
   setup (props) {
-    const { mapTools, map, view, mapElementDisplay } = useWebMap()
+    const { mapTools, map, view, mapElementDisplay, highlight } = useWebMap()
     const chartList = reactive([])
     const drawState = ref(false)
     const { pixelDataDEM, pixelDataGLC } = props // eslint-disable-line
@@ -83,10 +85,21 @@ export default {
       $ext(chartList).remove(index)
     }
 
+    const onTouchChart = index => {
+      highlight.clearHighlight()
+      highlight.setHighlight(mapElementDisplay.graphicsLayer, toRaw(chartList[index].graphics))
+    }
+
+    const onUntouchChart = () => {
+      highlight.clearHighlight()
+    }
+
     return {
       chartList,
       drawState,
       removeChart,
+      onTouchChart,
+      onUntouchChart
     }
   }
 }
