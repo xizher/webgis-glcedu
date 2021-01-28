@@ -1,8 +1,8 @@
 // import { onMounted, onUnmounted } from 'vue'
 import { useWebMap } from './useWebMap'
 
-import { esri } from '../../wxz/src/gis/esri'
-import { computed, onUnmounted, reactive, toRefs, watch } from 'vue'
+import { esri, EsriUtils } from '../../wxz/src/gis/esri'
+import { computed, onMounted, onUnmounted, reactive, toRefs, watch, watchEffect } from 'vue'
 import { usePixelData } from '../../wxz/src/gis/esri/esri-hooks/esri-hooks'
 
 export function useWelcome () {
@@ -158,4 +158,120 @@ export function useNaturalDifferenceByLongitude () {
     }
   })
   return [layer, loaded, getPixelData]
+}
+
+
+export function useUrbanization () {
+  const webMap = useWebMap()
+  webMap.zoomToLayer('长三角省级行政区划')
+}
+
+export function useUrbanizationSwipe () {
+  const { layerOperation, view } = useWebMap()
+  const layer2000 = layerOperation.findLayerByName('长三角2000年地表覆盖.png32')
+  const layer2010 = layerOperation.findLayerByName('长三角2010年地表覆盖.png32')
+  const layer2020 = layerOperation.findLayerByName('长三角2020年地表覆盖.png32')
+
+  const layerList = [
+    { key: 0, layer: layer2000, alias: '2000年' },
+    { key: 1, layer: layer2010, alias: '2010年' },
+    { key: 2, layer: layer2020, alias: '2020年' },
+  ]
+
+  const state = reactive({
+    leftSelectedIndex: 0,
+    rightSelectedIndex: 1,
+    leftPosition: 50,
+    style: computed(() => ({
+      left: `${state.leftPosition}%`,
+      bottom: '25px'
+    }))
+  })
+
+  const swipe = new esri.widgets.Swipe({
+    position: state.leftPosition,
+    view,
+  })
+  const watchHandler = swipe.watch('position', position => {
+    state.leftPosition = position
+  })
+  onUnmounted(() => {
+    watchHandler.remove()
+    view.ui.remove(swipe)
+    swipe.destroy()
+  })
+  view.ui.add(swipe)
+
+  watchEffect(() => {
+    layerList.forEach(item => item.layer.visible = false)
+    const leftLayer = layerList[state.leftSelectedIndex].layer
+    const rightLayer = layerList[state.rightSelectedIndex].layer
+    leftLayer.visible = true
+    rightLayer.visible = true
+    swipe.leadingLayers.removeAll()
+    swipe.leadingLayers.add(leftLayer)
+    swipe.trailingLayers.removeAll()
+    swipe.trailingLayers.add(rightLayer)
+  })
+
+
+  return {
+    layerList, state
+  }
+}
+
+export function useUrbanizationSplitSceen () {
+  const { layerOperation, divId, map, view } = useWebMap()
+  const layer2000 = layerOperation.findLayerByName('长三角2000年地表覆盖.png32')
+  const layer2010 = layerOperation.findLayerByName('长三角2010年地表覆盖.png32')
+  const layer2020 = layerOperation.findLayerByName('长三角2020年地表覆盖.png32')
+  layer2010.visible = true
+
+  const dom = document
+  const mainViewContainer = dom.getElementById(divId)
+  const { parentElement } = mainViewContainer
+  const leftContainer = dom.createElement('div')
+  const rightContainer = dom.createElement('div')
+  parentElement.insertBefore(leftContainer, mainViewContainer)
+  parentElement.append(rightContainer)
+  onUnmounted(() => {
+    leftContainer.remove()
+    rightContainer.remove()
+  })
+
+  const [leftMap, leftView] = createOtherView(leftContainer, layer2000)
+  const [rightMap, rightView] = createOtherView(rightContainer, layer2020)
+  onUnmounted(() => {
+    map.add(layer2000)
+    map.add(layer2020)
+    leftMap.basemap = {} // 接触引用，防止destroy时连同主图的basemap一起销毁
+    rightMap.basemap = {}
+    leftMap.destroy()
+    leftView.destroy()
+    rightMap.destroy()
+    rightView.destroy()
+  })
+
+  function createOtherView (viewContainer, layer) {
+    layer.visible = true
+    const basemap = map.basemap
+    const otherMap = new esri.Map({ basemap })
+    otherMap.add(layer)
+    const otherView = new esri.views.MapView({
+      container: viewContainer,
+      map: otherMap,
+      ui: { components: [] },
+      constraints: { minZoom: 3 },
+    })
+    otherView.extent = layer.fullExtent
+    return [otherMap, otherView]
+  }
+
+  const handler = EsriUtils.synchronizeViews([view, leftView, rightView])
+  onUnmounted(() => handler.remove())
+
+  onMounted(() => {
+    view.goTo(layer2010.fullExtent)
+  })
+
 }

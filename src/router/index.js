@@ -57,6 +57,12 @@ router.beforeEach(({ path }) => {
     selectedTopic.value = topicList['垂直地带性分异规律']
   } else if (path === '/urbanization') {
     selectedTopic.value = topicList['城市与城市化']
+  } else if (path === '/urbanization-statistics') {
+    selectedTopic.value = topicList['城市与城市化之统计分析']
+  } else if (path === '/urbanization-swipe') {
+    selectedTopic.value = topicList['城市与城市化之滑动可视化']
+  } else if (path === '/urbanization-split-screen') {
+    selectedTopic.value = topicList['城市与城市化之分屏可视化']
   }
 })
 

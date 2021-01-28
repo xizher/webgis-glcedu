@@ -45,7 +45,8 @@ class HooksRegister {
       case topicList['默认']:
       case topicList['自然地理环境的地域差异']:
       case topicList['城市与城市化']:
-        webMap.layerOperation.setAllLayersInvisible()
+        webMap.layerOperation
+          .setAllLayersInvisible()
         break
       case topicList['垂直地带性分异规律']:
         webMap.layerOperation
@@ -59,6 +60,13 @@ class HooksRegister {
           .setAllLayersInvisible()
           .setLayerVisible('经度地带性分异规律.png32', true)
           .setLayerVisibleAndZoomTo('经度地带性分异规律.tiff')
+        break
+      case topicList['城市与城市化之滑动可视化']:
+        webMap.layerOperation
+          .setAllLayersInvisible()
+          .setLayerVisible('长三角2020年地表覆盖.png32', true)
+          .setLayerVisible('长三角2010年地表覆盖.png32', true)
+          .setLayerVisibleAndZoomTo('长三角2020年地表覆盖.png32')
         break
       default:
         break

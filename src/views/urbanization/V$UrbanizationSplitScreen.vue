@@ -2,6 +2,7 @@
   <div class="vue-view-urbanization-split-screen">
     <BackToWelcomeView />
     <TopicHeaderPanel title="长三角地区城市与城市化" />
+    <UbnzonSplitScreen />
   </div>
 </template>
 
@@ -11,11 +12,15 @@ import {
   BackToWelcomeView,
   TopicHeaderPanel,
 } from '../../components/app'
+import {
+  UbnzonSplitScreen
+} from '../../components/project'
 export default {
   name: 'UrbanizationSplitScreen',
   components: {
     BackToWelcomeView,
     TopicHeaderPanel,
+    UbnzonSplitScreen,
   },
   setup () {
 

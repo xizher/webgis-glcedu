@@ -25,6 +25,7 @@ import {
   TopicHeaderPanel,
 } from '../../components/app'
 import { useRouter } from 'vue-router'
+import { useUrbanization } from '../../project/hooks/useTopic'
 export default {
   name: 'Urbanization',
   components: {
@@ -32,6 +33,8 @@ export default {
     TopicHeaderPanel,
   },
   setup () {
+    useUrbanization()
+
     const items = [
       { name: 'statistics', alias: '统计分析' },
       { name: 'swipe', alias: '滑动交互' },

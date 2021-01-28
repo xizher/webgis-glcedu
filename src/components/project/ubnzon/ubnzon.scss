@@ -1,0 +1,39 @@
+@import '../../../styles/vars/vars';
+
+.ubnzon-swipe {
+  @include size-conf(340px, 230px);
+  padding-top: 10px;
+  padding-left: 60px;
+  background-image: url(./images/panel.png);
+  @include background-conf(no-repeat, center, 100% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .left-layer-selector,
+  .right-layer-selector {
+    display: flex;
+    flex-direction: column;
+    margin: 16px;
+    > * {
+      margin: 4px;
+    }
+  }
+}
+
+.ubnzon-swipe-label-panel {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  transform: translateX(-150px);
+  
+  .ubnzon-swipe-label-panel-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include size-conf(120px, 60px);
+    background-image: url(./images/panel2.png);
+    @include background-conf(no-repeat, center, 100% 100%);
+    font-size: 20px;
+  }
+}
