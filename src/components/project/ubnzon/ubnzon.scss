@@ -37,3 +37,62 @@
     font-size: 20px;
   }
 }
+
+.ubnzon-stat-layer-manager {
+  @include size-conf(300px, 350px);
+  padding-top: 30px;
+  padding-left: 50px;
+  background-image: url(./images/panel5.png);
+  @include background-conf(no-repeat, center, 100% 100%);
+
+  .title {
+    font-size: 20px;
+  }
+
+  .item {
+    background-image: url(./images/panel4.png);
+    @include background-conf(no-repeat, center, 100% 100%);
+    @include size-conf(220px, 40px);
+    line-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+
+    .visible-ctrl {
+      @include size-conf(32px, 32px);
+      margin-left: auto;
+      @include background-conf(no-repeat, center, 100% 100%);
+      cursor: pointer;
+    }
+
+    .visible-true {
+      background-image: url(./images/visible-true.png);
+    }
+
+    .visible-false {
+      background-image: url(./images/visible-false.png);
+    }
+  }
+}
+
+.ubnzon-stat-operation {
+  @include size-conf(350px, 250px);
+  padding: 40px 20px 25px 40px;
+  background-image: url(./images/panel6.png);
+  @include background-conf(no-repeat, center, 100% 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  .selector {
+    margin-bottom: 10px;
+  }
+}
+
+.ubnzon-stat-chart {
+  @include size-conf(350px, 350px);
+  background-image: url(./images/panel7.png);
+  @include background-conf(no-repeat, center, 100% 100%);
+
+}

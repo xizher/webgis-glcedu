@@ -222,9 +222,9 @@ export function useUrbanizationSwipe () {
 
 export function useUrbanizationSplitSceen () {
   const { layerOperation, divId, map, view } = useWebMap()
-  const layer2000 = layerOperation.findLayerByName('长三角2000年地表覆盖.png32')
+  const layer2000 = layerOperation.cloneLayer('长三角2000年地表覆盖.png32')
   const layer2010 = layerOperation.findLayerByName('长三角2010年地表覆盖.png32')
-  const layer2020 = layerOperation.findLayerByName('长三角2020年地表覆盖.png32')
+  const layer2020 = layerOperation.cloneLayer('长三角2020年地表覆盖.png32')
   layer2010.visible = true
 
   const dom = document
@@ -242,8 +242,8 @@ export function useUrbanizationSplitSceen () {
   const [leftMap, leftView] = createOtherView(leftContainer, layer2000)
   const [rightMap, rightView] = createOtherView(rightContainer, layer2020)
   onUnmounted(() => {
-    map.add(layer2000)
-    map.add(layer2020)
+    // layerOperation.layerGroup.add(layer2000, 0)
+    // layerOperation.layerGroup.add(layer2020, 0)
     leftMap.basemap = {} // 接触引用，防止destroy时连同主图的basemap一起销毁
     rightMap.basemap = {}
     leftMap.destroy()
@@ -253,7 +253,6 @@ export function useUrbanizationSplitSceen () {
   })
 
   function createOtherView (viewContainer, layer) {
-    layer.visible = true
     const basemap = map.basemap
     const otherMap = new esri.Map({ basemap })
     otherMap.add(layer)
@@ -263,6 +262,7 @@ export function useUrbanizationSplitSceen () {
       ui: { components: [] },
       constraints: { minZoom: 3 },
     })
+    layer.visible = true
     otherView.extent = layer.fullExtent
     return [otherMap, otherView]
   }
@@ -274,4 +274,52 @@ export function useUrbanizationSplitSceen () {
     view.goTo(layer2010.fullExtent)
   })
 
+}
+
+export function useUrbanizationStatistics () {
+  const webMap = useWebMap()
+  const layer2000 = webMap.layerOperation.findLayerByName('长三角2000年地表覆盖.tiff')
+  const layer2010 = webMap.layerOperation.findLayerByName('长三角2010年地表覆盖.tiff')
+  const layer2020 = webMap.layerOperation.findLayerByName('长三角2020年地表覆盖.tiff')
+
+  const [loaded2000, getPixelData2000] = usePixelData(layer2000)
+  const [loaded2010, getPixelData2010] = usePixelData(layer2010)
+  const [loaded2020, getPixelData2020] = usePixelData(layer2020)
+
+  const loaded = computed(() => loaded2000.value && loaded2010.value && loaded2020.value)
+  watch(loaded, val => {
+    if (val) {
+      layer2000.visible = false
+      layer2010.visible = false
+      layer2020.visible = false
+    }
+  })
+
+  function getPixelData (type) {
+    if (type === 2000) {
+      return getPixelData2000()
+    } else if (type === 2010) {
+      return getPixelData2010()
+    } else if (type === 2020) {
+      return getPixelData2020()
+    }
+  }
+
+  return [loaded, getPixelData]
+}
+
+export function useUrbanizationStatisticsLayers () {
+  const { layerOperation } = useWebMap()
+  const [y2000, y2010, y2020, bMun, bPro] = [
+    '长三角2000年地表覆盖.png32', '长三角2010年地表覆盖.png32', '长三角2020年地表覆盖.png32',
+    '长三角市级行政区划', '长三角省级行政区划'
+  ]
+  const layers = {
+    [bPro]: layerOperation.findLayerByName(bPro),
+    [bMun]: layerOperation.findLayerByName(bMun),
+    [y2020]: layerOperation.findLayerByName(y2020),
+    [y2010]: layerOperation.findLayerByName(y2010),
+    [y2000]: layerOperation.findLayerByName(y2000),
+  }
+  return layers
 }

@@ -147,11 +147,12 @@ export default {
             options: {
               url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/CSJ_BOUA/MapServer/1`,
               visible: false,
+              renderer: { type: 'simple', symbol: { type: 'simple-line', color: 'white' } }
             }
           }
         },
         {
-          name: '长三角省级行政区划', alias: '长三角市级行政区划', key: '13',
+          name: '长三角省级行政区划', alias: '长三角省级行政区划', key: '13',
           target: { type: 'FeatureLayer',
             options: {
               url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/CSJ_BOUA/MapServer/0`,

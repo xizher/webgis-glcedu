@@ -68,6 +68,18 @@ class HooksRegister {
           .setLayerVisible('长三角2010年地表覆盖.png32', true)
           .setLayerVisibleAndZoomTo('长三角2020年地表覆盖.png32')
         break
+      case topicList['城市与城市化之统计分析']:
+        webMap.layerOperation
+          .setAllLayersInvisible()
+          .setLayerVisible('长三角2000年地表覆盖.tiff', true)
+          .setLayerVisible('长三角2000年地表覆盖.png32', true)
+          .setLayerVisible('长三角2010年地表覆盖.tiff', true)
+          .setLayerVisible('长三角2010年地表覆盖.png32', true)
+          .setLayerVisible('长三角2020年地表覆盖.tiff', true)
+          .setLayerVisible('长三角2020年地表覆盖.png32', true)
+          .setLayerVisible('长三角市级行政区划', true)
+          .setLayerVisibleAndZoomTo('长三角省级行政区划')
+        break
       default:
         break
       }
@@ -82,7 +94,7 @@ export function useCreateWebMap (divId) {
   onMounted(() => {
     state.webMap.load()
     HooksRegister.initHooks()
-    setGlc30Style('乞力马扎罗地表覆盖.tiff')('经度地带性分异规律.tiff')
+    setGlc30Style('乞力马扎罗地表覆盖.tiff')('经度地带性分异规律.tiff')('长三角2020年地表覆盖.tiff')('长三角2010年地表覆盖.tiff')('长三角2000年地表覆盖.tiff')
   })
 
   function setGlc30Style (layerName) {

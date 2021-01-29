@@ -8,6 +8,9 @@ import './ndba/ndba.scss'
 
 import UbnzonSwipe from './ubnzon/ubnzon-swipe.vue'
 import UbnzonSplitScreen from './ubnzon/ubnzon-split-screen.vue'
+import UrbanizationStatLayerManager from './ubnzon/ubnzon-stat-layer-manager.vue'
+import UrbanizationStatOperation from './ubnzon/ubnzon-stat-operation.vue'
+import UrbanizationStatChart from './ubnzon/ubnzon-stat-chart.vue'
 import './ubnzon/ubnzon.scss'
 
 export {
@@ -17,4 +20,7 @@ export {
   NdbaProfile,
   UbnzonSwipe,
   UbnzonSplitScreen,
+  UrbanizationStatLayerManager,
+  UrbanizationStatOperation,
+  UrbanizationStatChart,
 }
