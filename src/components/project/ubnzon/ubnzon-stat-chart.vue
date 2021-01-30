@@ -4,10 +4,9 @@
     left="100px"
   >
     <div
+      id="ubnzon-stat-chart"
       class="ubnzon-stat-chart"
-    >
-      t
-    </div>
+    />
   </panel-box>
 </template>
 

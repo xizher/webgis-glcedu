@@ -94,5 +94,5 @@
   @include size-conf(350px, 350px);
   background-image: url(./images/panel7.png);
   @include background-conf(no-repeat, center, 100% 100%);
-
+  padding: 45px 8px 8px 8px;
 }

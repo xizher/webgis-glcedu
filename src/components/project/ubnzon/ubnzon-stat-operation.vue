@@ -34,7 +34,7 @@
           </a-select-option>
         </a-select>
       </div>
-      <div
+      <!-- <div
         v-if="showCoverSelector"
         class="selector"
       >
@@ -45,9 +45,9 @@
         >
           <a-select-option
             v-for="item in coverTypes"
-            :key="item"
+            :key="item.key"
           >
-            {{ item }}
+            {{ item.name }}
           </a-select-option>
         </a-select>
       </div>
@@ -67,7 +67,7 @@
             {{ item }}
           </a-select-option>
         </a-select>
-      </div>
+      </div> -->
       <a-button
         :type="drawState ? 'primary' : 'default'"
         style="width: 260px"
@@ -80,7 +80,7 @@
 </template>
 
 <script>
-import { computed, ref, watch } from 'vue'
+import { computed, onUnmounted, ref, watch } from 'vue'
 import {
   PanelBox
 } from '../../app'
@@ -114,31 +114,49 @@ export default {
     const selectedAreaType = ref(areaTypes[0])
 
     const statTypes = [
-      '单年各类地表覆盖占比', '三年某地表覆盖变化', '综合变化对比',
+      '地表覆盖占比变化', '地表覆盖总量变化',
     ]
     const selectedStatType = ref(statTypes[0])
     const showCoverSelector = computed(() => selectedStatType.value === statTypes[1])
     const showYearSelector = computed(() => selectedStatType.value === statTypes[0])
 
-    const coverTypes = Object.values(appConfig.glc30Colormap).map(item => item.name)
-    const selectedCoverType = ref(coverTypes[0])
+    const coverTypes = Object.values(appConfig.glc30Colormap).map(item => ({
+      name: item.name, key: item.key
+    }))
+    const selectedCoverType = ref(coverTypes[0].key)
 
     const yearTypes = [2000, 2010, 2020]
     const selectedYearType = ref(yearTypes[0])
 
     const drawState = ref(false)
-    const { mapTools, map, view, mapElementDisplay } = useWebMap()
-    const ubnzonStatTool = new UbnzonStatTool(map, view, drawState, props.year2000, props.year2010, props.year2020)
+    const { mapTools, map, view, mapElementDisplay, highlight } = useWebMap()
+    const ubnzonStatTool = new UbnzonStatTool(
+      map,
+      view,
+      drawState,
+      props.year2000,
+      props.year2010,
+      props.year2020,
+      selectedAreaType,
+      selectedStatType,
+      selectedYearType,
+      selectedCoverType,
+    )
     if (!mapTools.hasTool('ubnzon-stat-tool')) {
       mapTools.createCustomTool('ubnzon-stat-tool', ubnzonStatTool)
     }
     watch(drawState, val => {
       if (val) {
         mapElementDisplay.clear()
+        highlight.clearHighlight()
         mapTools.setMapTool('ubnzon-stat-tool')
       } else {
         mapTools.setMapTool('')
       }
+    })
+    onUnmounted(() => {
+      mapElementDisplay.clear()
+      highlight.clearHighlight()
     })
     watch(selectedAreaType, val => {
       switch (val) {

@@ -94,7 +94,7 @@ export function useCreateWebMap (divId) {
   onMounted(() => {
     state.webMap.load()
     HooksRegister.initHooks()
-    setGlc30Style('乞力马扎罗地表覆盖.tiff')('经度地带性分异规律.tiff')('长三角2020年地表覆盖.tiff')('长三角2010年地表覆盖.tiff')('长三角2000年地表覆盖.tiff')
+    setGlc30Style('乞力马扎罗地表覆盖.tiff')('经度地带性分异规律.tiff')('长三角2020年地表覆盖.tiff')('长三角2010年地表覆盖.tiff')('长三角2000年地表覆盖.tiff')('长三角2020年地表覆盖.png32')('长三角2010年地表覆盖.png32')('长三角2000年地表覆盖.png32')
   })
 
   function setGlc30Style (layerName) {
