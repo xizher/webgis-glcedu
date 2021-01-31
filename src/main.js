@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import appConfig from './config/app.config'
-import { EsriModules } from './wxz/src/gis/esri/esri-modules/esri-modules'
+import { EsriModules } from './wxz/gis/esri'
 import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
 

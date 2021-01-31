@@ -45,25 +45,25 @@ const router = createRouter({
   routes,
 })
 
-router.beforeEach(({ path }) => {
-  const { selectedTopic, topicList } = useMapHooks()
-  if (path === '/') {
-    selectedTopic.value = topicList['默认']
-  } else if (path === '/natural-difference') {
-    selectedTopic.value = topicList['自然地理环境的地域差异']
-  } else if (path === '/natural-difference-longitude') {
-    selectedTopic.value = topicList['经度地带性分异规律']
-  } else if (path === '/natural-difference-altitude') {
-    selectedTopic.value = topicList['垂直地带性分异规律']
-  } else if (path === '/urbanization') {
-    selectedTopic.value = topicList['城市与城市化']
-  } else if (path === '/urbanization-statistics') {
-    selectedTopic.value = topicList['城市与城市化之统计分析']
-  } else if (path === '/urbanization-swipe') {
-    selectedTopic.value = topicList['城市与城市化之滑动可视化']
-  } else if (path === '/urbanization-split-screen') {
-    selectedTopic.value = topicList['城市与城市化之分屏可视化']
-  }
-})
+// router.beforeEach(({ path }) => {
+//   const { selectedTopic, topicList } = useMapHooks()
+//   if (path === '/') {
+//     selectedTopic.value = topicList['默认']
+//   } else if (path === '/natural-difference') {
+//     selectedTopic.value = topicList['自然地理环境的地域差异']
+//   } else if (path === '/natural-difference-longitude') {
+//     selectedTopic.value = topicList['经度地带性分异规律']
+//   } else if (path === '/natural-difference-altitude') {
+//     selectedTopic.value = topicList['垂直地带性分异规律']
+//   } else if (path === '/urbanization') {
+//     selectedTopic.value = topicList['城市与城市化']
+//   } else if (path === '/urbanization-statistics') {
+//     selectedTopic.value = topicList['城市与城市化之统计分析']
+//   } else if (path === '/urbanization-swipe') {
+//     selectedTopic.value = topicList['城市与城市化之滑动可视化']
+//   } else if (path === '/urbanization-split-screen') {
+//     selectedTopic.value = topicList['城市与城市化之分屏可视化']
+//   }
+// })
 
 export default router
