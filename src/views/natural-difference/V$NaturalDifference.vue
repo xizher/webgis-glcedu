@@ -24,12 +24,11 @@
 </template>
 
 <script>
-import { } from 'vue'
 import {
   BackToWelcomeView,
   TopicHeaderPanel,
 } from '../../components/app'
-import { useNaturalDifference } from '../../project/hooks/useTopic'
+import useNaturalDifference from '../../project/hooks/topic/useNaturalDifference'
 import { useRouter } from 'vue-router'
 export default {
   name: 'NaturalDifference',
@@ -38,14 +37,11 @@ export default {
     TopicHeaderPanel,
   },
   setup () {
-    const { styleDiffByLon, styleDiffByAlt } = useNaturalDifference()
     const router = useRouter()
-    const goto = path => {
-      router.push(path)
-    }
+    const goto = path => router.push(path)
+
     return {
-      styleDiffByLon,
-      styleDiffByAlt,
+      ...useNaturalDifference(),
       goto,
     }
   }

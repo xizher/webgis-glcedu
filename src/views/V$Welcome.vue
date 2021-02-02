@@ -28,13 +28,11 @@
 <script>
 import { } from 'vue'
 import { useRouter } from 'vue-router'
-import { useWelcome } from '../project/hooks/useTopic'
 export default {
   name: 'Welcome',
   setup () {
     const router = useRouter()
     const items = ['natural-difference', 'urbanization']
-    useWelcome()
 
     const goto = (path) => {
       router.push(path)

@@ -1,41 +1,10 @@
 // import { onMounted, onUnmounted } from 'vue'
-import { useWebMap } from './useWebMap'
+import { useLayersVisible, useWebMap, usePixelData } from './useWebMap'
 
-import { esri, EsriUtils } from '../../wxz/src/gis/esri'
+import { esri } from '../../wxz/gis/esri'
 import { computed, onMounted, onUnmounted, reactive, toRefs, watch, watchEffect } from 'vue'
-import { usePixelData } from '../../wxz/src/gis/esri/esri-hooks/esri-hooks'
+// import { usePixelData } from '../../wxz/src/gis/esri/esri-hooks/esri-hooks'
 
-export function useWelcome () {
-  // const { view } = useWebMap()
-  // let handlerId = 0
-  // onMounted(() => setAnimation ())
-  // onUnmounted(() => clearAnimation())
-
-  // const dragHandler = view.on('drag', ({ action }) => {
-  //   if (action === 'start') {
-  //     clearAnimation()
-  //   } else if (action === 'end') {
-  //     setAnimation()
-  //   }
-  // })
-  // onUnmounted(() => dragHandler.remove())
-
-  // function setAnimation () {
-  //   handlerId = setInterval(() => {
-  //     const { longitude, latitude } = view.center
-  //     view.goTo({
-  //       center: [longitude + .5, latitude]
-  //     }, {
-  //       duration: 200,
-  //       easing: 'linear'
-  //     })
-  //   }, 5000)
-  // }
-
-  // function clearAnimation () {
-  //   clearInterval(handlerId)
-  // }
-}
 
 export function useNaturalDifference () {
   const state = reactive({
@@ -54,7 +23,7 @@ export function useNaturalDifference () {
       top: `${state.diffByAlt.y - 50}px`,
     })),
   })
-  const { view } = useWebMap()
+  const { view, esriUtils } = useWebMap()
   view.goTo({ center: update(), zoom: 3 })
   const watchHandler = view.watch('extent', update)
   onUnmounted(() => watchHandler.remove())
@@ -70,11 +39,8 @@ export function useNaturalDifference () {
     state.diffByAlt.y = y
     return point
   }
-  function getSceenPoint (lon, lat) {
-    const point = new esri.geometry.Point({
-      longitude: lon, latitude: lat,
-      spatialReference: view.spatialReference
-    })
+  function getSceenPoint (longitude, latitude) {
+    const point = esriUtils.createPoint({ longitude, latitude })
     const screenPoint = view.toScreen(point)
     return [screenPoint.x, screenPoint.y, point]
   }
@@ -143,21 +109,6 @@ export function useNaturalDifferenceByAltitude () {
   }
 
   return [getLayer, loaded, getPixelData]
-}
-
-/**
- * @returns { [__esri.ImageryLayer, import('vue').Ref<boolean>, () => __esri.PixelData] }
- */
-export function useNaturalDifferenceByLongitude () {
-  const { layerOperation } = useWebMap()
-  const layer = layerOperation.findLayerByName('经度地带性分异规律.tiff')
-  const [loaded, getPixelData] = usePixelData(layer)
-  watch(loaded, val => {
-    if (val) {
-      layer.visible = false
-    }
-  })
-  return [layer, loaded, getPixelData]
 }
 
 

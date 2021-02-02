@@ -1,5 +1,4 @@
 import { createRouter, createMemoryHistory } from 'vue-router'
-import { useMapHooks } from '../project/hooks/useWebMap'
 
 /**
  * @type { import('vue-router').RouteRecordRaw[] }

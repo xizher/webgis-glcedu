@@ -7,50 +7,37 @@
     />
     <NdbaSurface
       v-if="loaded"
-      :pixel-data-d-e-m="getPixelData('DEM')"
-      :pixel-data-g-l-c="getPixelData('GLC')"
-      :layer="getLayer('GLC')"
+      :use-surface="useSurface"
     />
-    <NdbaProfile
+    <!-- <NdbaProfile
       v-if="loaded"
       :pixel-data-d-e-m="getPixelData('DEM')"
       :pixel-data-g-l-c="getPixelData('GLC')"
-    />
+    /> -->
   </div>
 </template>
 
 <script>
-import { watch } from 'vue'
 import {
   BackToWelcomeView,
   TopicHeaderPanel,
 } from '../../components/app'
 import {
   NdbaSurface,
-  NdbaProfile,
+  // NdbaProfile,
 } from '../../components/project'
-import { useNaturalDifferenceByAltitude } from '../../project/hooks/useTopic'
+import { useNaturalDifferenceByAltitude } from '../../project/hooks/topic/useNaturalDifference'
 export default {
   name: 'NaturalDifferenceByAltitude',
   components: {
     BackToWelcomeView,
     TopicHeaderPanel,
     NdbaSurface,
-    NdbaProfile,
+    // NdbaProfile,
   },
   setup () {
-    const [getLayer, loaded, getPixelData] = useNaturalDifferenceByAltitude()
-    watch(loaded, val => {
-      if (val) {
-        // console.log(getPixelData('glc'))
-      }
-    })
 
-    return {
-      loaded,
-      getPixelData,
-      getLayer,
-    }
+    return useNaturalDifferenceByAltitude()
   }
 }
 </script>

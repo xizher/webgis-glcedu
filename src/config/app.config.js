@@ -19,137 +19,6 @@ export default {
         minZoom: 3
       },
     },
-    layerOperationOptions: {
-      layerList: [
-        {
-          name: '经度地带性分异规律.tiff', alias: '经度地带性分异规律', key: '0',
-          target: { type: 'ImageryLayer',
-            options: {
-              url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2020_N48TO51_40/ImageServer`,
-              format: 'tiff', visible: false,
-            }
-          }
-        },
-        {
-          name: '经度地带性分异规律.png32', alias: '经度地带性分异规律', key: '1',
-          target: { type: 'ImageryLayer',
-            options: {
-              url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2020_N48TO51_40/ImageServer`,
-              format: 'png32', visible: false,
-            }
-          }
-        },
-        // {
-        //   name: '乞力马扎罗数字高程模型.png32', alias: '乞力马扎罗数字高程模型', key: '2',
-        //   target: { type: 'ImageryLayer',
-        //     options: {
-        //       url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/DEM_KLMZO/ImageServer`,
-        //       format: 'png32', visible: false,
-        //     }
-        //   }
-        // },
-        {
-          name: '乞力马扎罗数字高程模型.tiff', alias: '乞力马扎罗数字高程模型', key: '3',
-          target: { type: 'ImageryLayer',
-            options: {
-              url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/DEM_KLMZO/ImageServer`,
-              format: 'tiff', visible: false,
-            }
-          }
-        },
-        {
-          name: '乞力马扎罗地表覆盖.png32', alias: '乞力马扎罗地表覆盖', key: '4',
-          target: { type: 'ImageryLayer',
-            options: {
-              url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2000_KILIMANJARO/ImageServer`,
-              format: 'png32', visible: false,
-            }
-          }
-        },
-        {
-          name: '乞力马扎罗地表覆盖.tiff', alias: '乞力马扎罗地表覆盖', key: '5',
-          target: { type: 'ImageryLayer',
-            options: {
-              url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2000_KILIMANJARO/ImageServer`,
-              format: 'tiff', visible: false,
-            }
-          }
-        },
-        {
-          name: '长三角2000年地表覆盖.png32', alias: '长三角2000年地表覆盖', key: '6',
-          target: { type: 'ImageryLayer',
-            options: {
-              url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2000_CSJ/ImageServer`,
-              format: 'png32', visible: false,
-            }
-          }
-        },
-        {
-          name: '长三角2000年地表覆盖.tiff', alias: '长三角2000年地表覆盖', key: '7',
-          target: { type: 'ImageryLayer',
-            options: {
-              url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2000_CSJ/ImageServer`,
-              format: 'tiff', visible: false,
-            }
-          }
-        },
-        {
-          name: '长三角2010年地表覆盖.png32', alias: '长三角2010年地表覆盖', key: '8',
-          target: { type: 'ImageryLayer',
-            options: {
-              url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2010_CSJ/ImageServer`,
-              format: 'png32', visible: false,
-            }
-          }
-        },
-        {
-          name: '长三角2010年地表覆盖.tiff', alias: '长三角2010年地表覆盖', key: '9',
-          target: { type: 'ImageryLayer',
-            options: {
-              url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2010_CSJ/ImageServer`,
-              format: 'tiff', visible: false,
-            }
-          }
-        },
-        {
-          name: '长三角2020年地表覆盖.png32', alias: '长三角2020年地表覆盖', key: '10',
-          target: { type: 'ImageryLayer',
-            options: {
-              url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2020_CSJ/ImageServer`,
-              format: 'png32', visible: false,
-            }
-          }
-        },
-        {
-          name: '长三角2020年地表覆盖.tiff', alias: '长三角2020年地表覆盖', key: '11',
-          target: { type: 'ImageryLayer',
-            options: {
-              url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2020_CSJ/ImageServer`,
-              format: 'tiff', visible: false,
-            }
-          }
-        },
-        {
-          name: '长三角市级行政区划', alias: '长三角市级行政区划', key: '12',
-          target: { type: 'FeatureLayer',
-            options: {
-              url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/CSJ_BOUA/MapServer/1`,
-              visible: false,
-              renderer: { type: 'simple', symbol: { type: 'simple-fill', color: [0, 0, 0, 0], outline: { color: 'white' } } }
-            }
-          }
-        },
-        {
-          name: '长三角省级行政区划', alias: '长三角省级行政区划', key: '13',
-          target: { type: 'FeatureLayer',
-            options: {
-              url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/CSJ_BOUA/MapServer/0`,
-              visible: false,
-            }
-          }
-        },
-      ]
-    },
   },
   basemapOptions: {
     'visible': true,
@@ -179,12 +48,92 @@ export default {
   layerOperationOptions: {
     layerList: [
       {
-        name: '长三角市级行政区划', alias: '长三角市级行政区划', key: '12',
-        target: { type: 'FeatureLayer',
+        name: '经度地带性分异规律.tiff', alias: '经度地带性分异规律', key: '0',
+        target: { type: 'ImageryLayer',
           options: {
-            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/CSJ_BOUA/MapServer/1`,
-            visible: true,
-            renderer: { type: 'simple', symbol: { type: 'simple-fill', color: [0, 0, 0, 0], outline: { color: 'white' } } }
+            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2020_N48TO51_40/ImageServer`,
+            format: 'tiff', visible: false,
+          }
+        }
+      },
+      {
+        name: '经度地带性分异规律.png32', alias: '经度地带性分异规律', key: '1',
+        target: { type: 'ImageryLayer',
+          options: {
+            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2020_N48TO51_40/ImageServer`,
+            format: 'png32', visible: false,
+          }
+        }
+      },
+      // {
+      //   name: '乞力马扎罗数字高程模型.png32', alias: '乞力马扎罗数字高程模型', key: '2',
+      //   target: { type: 'ImageryLayer',
+      //     options: {
+      //       url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/DEM_KLMZO/ImageServer`,
+      //       format: 'png32', visible: false,
+      //     }
+      //   }
+      // },
+      {
+        name: '乞力马扎罗数字高程模型.tiff', alias: '乞力马扎罗数字高程模型', key: '3',
+        target: { type: 'ImageryLayer',
+          options: {
+            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/DEM_KLMZO/ImageServer`,
+            format: 'tiff', visible: false,
+          }
+        }
+      },
+      {
+        name: '乞力马扎罗地表覆盖.png32', alias: '乞力马扎罗地表覆盖', key: '4',
+        target: { type: 'ImageryLayer',
+          options: {
+            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2000_KILIMANJARO/ImageServer`,
+            format: 'png32', visible: false,
+          }
+        }
+      },
+      {
+        name: '乞力马扎罗地表覆盖.tiff', alias: '乞力马扎罗地表覆盖', key: '5',
+        target: { type: 'ImageryLayer',
+          options: {
+            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2000_KILIMANJARO/ImageServer`,
+            format: 'tiff', visible: false,
+          }
+        }
+      },
+      {
+        name: '长三角2000年地表覆盖.png32', alias: '长三角2000年地表覆盖', key: '6',
+        target: { type: 'ImageryLayer',
+          options: {
+            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2000_CSJ/ImageServer`,
+            format: 'png32', visible: false,
+          }
+        }
+      },
+      {
+        name: '长三角2000年地表覆盖.tiff', alias: '长三角2000年地表覆盖', key: '7',
+        target: { type: 'ImageryLayer',
+          options: {
+            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2000_CSJ/ImageServer`,
+            format: 'tiff', visible: false,
+          }
+        }
+      },
+      {
+        name: '长三角2010年地表覆盖.png32', alias: '长三角2010年地表覆盖', key: '8',
+        target: { type: 'ImageryLayer',
+          options: {
+            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2010_CSJ/ImageServer`,
+            format: 'png32', visible: false,
+          }
+        }
+      },
+      {
+        name: '长三角2010年地表覆盖.tiff', alias: '长三角2010年地表覆盖', key: '9',
+        target: { type: 'ImageryLayer',
+          options: {
+            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2010_CSJ/ImageServer`,
+            format: 'tiff', visible: false,
           }
         }
       },
@@ -193,7 +142,26 @@ export default {
         target: { type: 'ImageryLayer',
           options: {
             url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2020_CSJ/ImageServer`,
-            format: 'png32', visible: true,
+            format: 'png32', visible: false,
+          }
+        }
+      },
+      {
+        name: '长三角2020年地表覆盖.tiff', alias: '长三角2020年地表覆盖', key: '11',
+        target: { type: 'ImageryLayer',
+          options: {
+            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2020_CSJ/ImageServer`,
+            format: 'tiff', visible: false,
+          }
+        }
+      },
+      {
+        name: '长三角市级行政区划', alias: '长三角市级行政区划', key: '12',
+        target: { type: 'FeatureLayer',
+          options: {
+            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/CSJ_BOUA/MapServer/1`,
+            visible: false,
+            renderer: { type: 'simple', symbol: { type: 'simple-fill', color: [0, 0, 0, 0], outline: { color: 'white' } } }
           }
         }
       },
@@ -202,7 +170,7 @@ export default {
         target: { type: 'FeatureLayer',
           options: {
             url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/CSJ_BOUA/MapServer/0`,
-            visible: true,
+            visible: false,
           }
         }
       },
