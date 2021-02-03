@@ -1,7 +1,8 @@
-import { computed, onUnmounted, reactive, ref, toRefs } from 'vue'
-import { useLayersVisible, usePixelData, useWebMap } from '../useWebMap'
+import { computed, onUnmounted, reactive, ref, toRefs, watch } from 'vue'
+import { useLayersVisible, usePixelData, useWebMap, useCustomTool } from '../useWebMap'
 import appConfig from '../../../config/app.config'
 import { useECharts } from '../../../wxz/echarts-helper/echarts-hooks'
+import { NdbaProfileTool } from '../../tools/ndba-profile-tool'
 
 export function useNaturalDifferenceByLongitude () {
   const { esriExt, view, esriUtils } = useWebMap()
@@ -71,7 +72,7 @@ export function useNaturalDifferenceByLongitude () {
  * @returns { [__esri.Layer, import('vue').Ref<boolean>, ...Array<() => __esri.PixelData>] }
  */
 export function useNaturalDifferenceByAltitude () {
-  const { view, esriUtils, esriExt } = useWebMap()
+  const { map, view, esriUtils, esriExt } = useWebMap()
   const [layer] = useLayersVisible('乞力马扎罗地表覆盖.png32')
   view.goTo(layer.fullExtent)
   const [loaded, getPixelDataDEM, getPixelDataGLC] = usePixelData([
@@ -173,7 +174,18 @@ export function useNaturalDifferenceByAltitude () {
   }
 
   function useProfile () {
-    // todo
+    const chartList = reactive([])
+    const drawState = ref(false)
+    const pixelDataDEM = getPixelDataDEM()
+    const pixelDataGLC = getPixelDataGLC()
+    const ndbaProfileTool = new NdbaProfileTool(map, view, {
+      chartList, drawState, pixelDataGLC, pixelDataDEM
+    })
+    const [active, deactice] = useCustomTool('ndba-profile-tool', ndbaProfileTool)
+    watch(drawState, state => {
+      state ? active() : deactice()
+    })
+    return { drawState, chartList }
   }
 }
 

@@ -9,11 +9,10 @@
       v-if="loaded"
       :use-surface="useSurface"
     />
-    <!-- <NdbaProfile
+    <NdbaProfile
       v-if="loaded"
-      :pixel-data-d-e-m="getPixelData('DEM')"
-      :pixel-data-g-l-c="getPixelData('GLC')"
-    /> -->
+      :use-profile="useProfile"
+    />
   </div>
 </template>
 
@@ -24,7 +23,7 @@ import {
 } from '../../components/app'
 import {
   NdbaSurface,
-  // NdbaProfile,
+  NdbaProfile,
 } from '../../components/project'
 import { useNaturalDifferenceByAltitude } from '../../project/hooks/topic/useNaturalDifference'
 export default {
@@ -33,7 +32,7 @@ export default {
     BackToWelcomeView,
     TopicHeaderPanel,
     NdbaSurface,
-    // NdbaProfile,
+    NdbaProfile,
   },
   setup () {
 

@@ -238,3 +238,23 @@ export function usePixelData (names) {
   return [loaded, ...pixelDatas.map(([, getPixelData]) => getPixelData)]
 }
 
+/**
+ * 创建自定义工具
+ * @param { string } toolKey 工具名
+ * @param { import('../../wxz/gis/esri/map-tools/base-tool/base-tool').BaseTool } toolObject 工具对象
+ */
+export function useCustomTool (toolKey, toolObject) {
+  const { mapTools, mapElementDisplay } = state.webMap
+  if (!mapTools.hasTool(toolKey)) {
+    mapTools.createCustomTool(toolKey, toolObject)
+  }
+  onUnmounted(() => {
+    mapTools.setMapTool('')
+    mapElementDisplay.clear()
+  })
+  return [
+    () => mapTools.setMapTool(toolKey),
+    () => mapTools.setMapTool(''),
+  ]
+}
+

@@ -19,7 +19,7 @@
         ✘
       </a-button>
       <div
-        :id="`chart-ndba-profile-${item.id}`"
+        :id="item.id"
         class="chart-ndba-profile"
       />
     </div>
@@ -35,68 +35,38 @@
 </template>
 
 <script>
-import { onUnmounted, reactive, ref, watch, toRaw } from 'vue'
 import {
   PanelBox
 } from '../../app'
-import { useWebMap } from '../../../project/hooks/useWebMap'
-import { NdbaProfileTool } from './ndba-profile-tool'
-import { $ext } from '../../../wxz/src/js-ext'
 export default {
   name: 'Profile',
   components: {
     'panel-box': PanelBox,
   },
   props: {
-    pixelDataDEM: {
-      type: Object,
-      default: () => ({})
-    },
-    pixelDataGLC: {
-      type: Object,
-      default: () => ({})
-    },
+    useProfile: {
+      type: Function,
+      default: () => () => null
+    }
   },
   setup (props) {
-    const { mapTools, map, view, mapElementDisplay, highlight } = useWebMap()
-    const chartList = reactive([])
-    const drawState = ref(false)
-    const { pixelDataDEM, pixelDataGLC } = props // eslint-disable-line
-    const ndbaProfileTool = new NdbaProfileTool(map, view, pixelDataDEM, pixelDataGLC, chartList, drawState)
-    if (!mapTools.hasTool('ndba-profile-tool')) {
-      mapTools.createCustomTool('ndba-profile-tool', ndbaProfileTool)
-    }
-
-    watch(drawState, val => {
-      if (val) {
-        mapTools.setMapTool('ndba-profile-tool')
-      } else {
-        mapTools.setMapTool('')
-      }
-    })
-
-    onUnmounted(() => {
-      mapTools.setMapTool('')
-      mapElementDisplay.clear()
-    })
 
     const removeChart = index => {
-      mapElementDisplay.removeGraphics(toRaw(chartList[index].graphics))
-      $ext(chartList).remove(index)
+      // mapElementDisplay.removeGraphics(toRaw(chartList[index].graphics))
+      // $ext(chartList).remove(index)
     }
 
     const onTouchChart = index => {
-      highlight.clearHighlight()
-      highlight.setHighlight(mapElementDisplay.graphicsLayer, toRaw(chartList[index].graphics))
+      // highlight.clearHighlight()
+      // highlight.setHighlight(mapElementDisplay.graphicsLayer, toRaw(chartList[index].graphics))
     }
 
     const onUntouchChart = () => {
-      highlight.clearHighlight()
+      // highlight.clearHighlight()
     }
 
     return {
-      chartList,
-      drawState,
+      ...props.useProfile(),
       removeChart,
       onTouchChart,
       onUntouchChart
