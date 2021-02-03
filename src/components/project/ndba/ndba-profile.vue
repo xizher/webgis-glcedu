@@ -51,25 +51,8 @@ export default {
   },
   setup (props) {
 
-    const removeChart = index => {
-      // mapElementDisplay.removeGraphics(toRaw(chartList[index].graphics))
-      // $ext(chartList).remove(index)
-    }
-
-    const onTouchChart = index => {
-      // highlight.clearHighlight()
-      // highlight.setHighlight(mapElementDisplay.graphicsLayer, toRaw(chartList[index].graphics))
-    }
-
-    const onUntouchChart = () => {
-      // highlight.clearHighlight()
-    }
-
     return {
       ...props.useProfile(),
-      removeChart,
-      onTouchChart,
-      onUntouchChart
     }
   }
 }

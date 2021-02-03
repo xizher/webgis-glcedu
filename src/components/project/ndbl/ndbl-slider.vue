@@ -78,11 +78,13 @@ export default {
     // 监听滑动值，并绘制值所指的经线
     watch(latitude, val => {
       const line = new esri.geometry.Polyline({
-        paths: [[minLongitude, val], [maxLongitude, val]]
+        paths: [[minLongitude, val + .07], [maxLongitude, val - .07]]
       })
-      const graphic = mapElementDisplay.parseGraphics(line, {
-        color: [0, 0, 0, .65],
-        width: '8px'
+      const graphic = mapElementDisplay.parseGraphics(line.extent, {
+        color: [0, 0, 0, .35],
+        outline: {
+          color: [0, 0, 0]
+        }
       })
       mapElementDisplay.setGraphics(graphic)
       emit('change', latitude.value)

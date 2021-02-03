@@ -1,4 +1,4 @@
-import { computed, onUnmounted, reactive, ref, toRefs, watch } from 'vue'
+import { computed, onUnmounted, reactive, ref, toRaw, toRefs, watch } from 'vue'
 import { useLayersVisible, usePixelData, useWebMap, useCustomTool } from '../useWebMap'
 import appConfig from '../../../config/app.config'
 import { useECharts } from '../../../wxz/echarts-helper/echarts-hooks'
@@ -72,7 +72,7 @@ export function useNaturalDifferenceByLongitude () {
  * @returns { [__esri.Layer, import('vue').Ref<boolean>, ...Array<() => __esri.PixelData>] }
  */
 export function useNaturalDifferenceByAltitude () {
-  const { map, view, esriUtils, esriExt } = useWebMap()
+  const { map, view, esriUtils, esriExt, mapElementDisplay } = useWebMap()
   const [layer] = useLayersVisible('乞力马扎罗地表覆盖.png32')
   view.goTo(layer.fullExtent)
   const [loaded, getPixelDataDEM, getPixelDataGLC] = usePixelData([
@@ -185,7 +185,24 @@ export function useNaturalDifferenceByAltitude () {
     watch(drawState, state => {
       state ? active() : deactice()
     })
-    return { drawState, chartList }
+
+    const removeChart = index => {
+      mapElementDisplay.removeGraphics(toRaw(chartList)[index].graphic.geometry)
+      // $ext(chartList).remove(index)
+    }
+
+    const onTouchChart = index => {
+      // highlight.clearHighlight()
+      // highlight.setHighlight(mapElementDisplay.graphicsLayer, toRaw(chartList[index].graphics))
+      const graphic = mapElementDisplay.parseHighlightGraphics(toRaw(chartList)[index].graphic.geometry)
+      mapElementDisplay.setHighlight(graphic)
+    }
+
+    const onUntouchChart = () => {
+      // highlight.clearHighlight()
+      mapElementDisplay.clearHighlight()
+    }
+    return { drawState, chartList, removeChart, onTouchChart, onUntouchChart }
   }
 }
 
