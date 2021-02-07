@@ -6,15 +6,12 @@
 
 <script>
 import { } from 'vue'
-import { useUrbanizationSplitSceen } from '../../../project/hooks/useTopic'
+import { useUrbanizationSplitSceen } from '../../../project/hooks/topic/useUrbanization'
 export default {
   name: 'UbnzonSplitScreen',
   setup () {
-    useUrbanizationSplitSceen()
 
-    return {
-
-    }
+    return useUrbanizationSplitSceen()
   }
 }
 </script>

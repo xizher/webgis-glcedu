@@ -136,6 +136,8 @@ import {
   MapCursor,
   MapElementDisplay,
   MapTools,
+  esri,
+  Highlight,
 } from '../../wxz/gis/esri'
 import appConfig from '../../config/app.config'
 
@@ -154,6 +156,7 @@ const state = {
  * 初始化钩子
  */
 export function useCreateWebMap () {
+  esri.config.request.timeout = 600000
   const loaded = ref(false)
   const webMap = new WebMap('webmap-container', appConfig.webMapOptions)
   webMap.on('mounted', () => loaded.value = true)
@@ -167,6 +170,7 @@ export function useCreateWebMap () {
       .use(new MapCursor())
       .use(new MapElementDisplay())
       .use(new MapTools())
+      .use(new Highlight())
       .mount()
   })
   return [loaded, webMap]

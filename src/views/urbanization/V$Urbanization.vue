@@ -25,7 +25,7 @@ import {
   TopicHeaderPanel,
 } from '../../components/app'
 import { useRouter } from 'vue-router'
-import { useUrbanization } from '../../project/hooks/useTopic'
+import useUrbanization from '../../project/hooks/topic/useUrbanization'
 export default {
   name: 'Urbanization',
   components: {
