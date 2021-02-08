@@ -1,0 +1,47 @@
+@import '../../../styles/vars/vars';
+
+.legend-box {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  max-width: 30%;
+
+  .item,
+  .title {
+    @include size-conf(80px, 70px);
+    background-image: url(./images/panel.png);
+    @include background-conf(no-repeat, center, 100% 100%);
+    cursor: pointer;
+  }
+
+  .item {
+    padding-left: 15px;
+    padding-right: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .color {
+      @include size-conf(30px, 20px);
+      border-radius: 6px
+    }
+  
+    .text {
+      font-size: 8px;
+      text-align: center;
+    }
+  }
+
+  .title {
+    padding-left: 14px;
+    font-size: 18px;
+    text-align: center;
+    line-height: 65px;
+    letter-spacing: 8px;
+  }
+}

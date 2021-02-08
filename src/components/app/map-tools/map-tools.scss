@@ -1,0 +1,71 @@
+@import '../../../styles/vars/vars';
+
+@mixin before-conf() {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  @include size-conf(100%, 100%);
+  @include background-conf(no-repeat, center, 32px 32px);
+}
+
+.map-tools {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+
+  display: flex;
+  flex-direction: column;
+
+  .item {
+    position: relative;
+    @include size-conf(64px, 64px);
+    margin: 2px;
+    cursor: pointer;
+    background-image: url(./images/panel.png);
+    @include background-conf(no-repeat, center, 100% 100%);
+  }
+
+  .item:nth-child(2n+1) {
+    margin-left: 32px;
+  }
+
+  .item:not(:last-child) {
+    margin-bottom: -8px;
+  }
+
+  .default:before {
+    @include before-conf();
+    background-image: url(./images/default.png);
+  }
+
+  .zoom-home:before {
+    @include before-conf();
+    background-image: url(./images/zoom-home.png);
+  }
+
+  .zoom-in:before {
+    @include before-conf();
+    background-image: url(./images/zoom-in.png);
+  }
+
+  .zoom-out:before {
+    @include before-conf();
+    background-image: url(./images/zoom-out.png);
+  }
+
+  .zoom-in-rect:before {
+    @include before-conf();
+    background-image: url(./images/zoom-in-rect.png);
+  }
+
+  .zoom-out-rect:before {
+    @include before-conf();
+    background-image: url(./images/zoom-out-rect.png);
+  }
+
+  .clear:before {
+    @include before-conf();
+    background-image: url(./images/clear.png);
+  }
+}

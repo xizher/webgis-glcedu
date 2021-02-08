@@ -15,12 +15,19 @@
       </router-view>
     </div>
   </div>
+  <MapTools v-if="loaded" />
+  <LegendBox v-if="loaded" />
 </template>
 
 <script>
 import { useCreateWebMap } from './project/hooks/useWebMap'
+import { MapTools, LegendBox } from './components/app'
 export default {
   name: 'App',
+  components: {
+    MapTools,
+    LegendBox,
+  },
   setup () {
     const [loaded, webMap] = useCreateWebMap()
     window.webMap = webMap // 方便调试用的
