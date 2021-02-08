@@ -102,19 +102,38 @@ export default {
         }
       },
       {
-        name: '长三角2000年地表覆盖.png32', alias: '长三角2000年地表覆盖', key: '6',
+        name: '长三角省级行政区划', alias: '长三角省级行政区划', key: '13',
+        target: { type: 'FeatureLayer',
+          options: {
+            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/CSJ_BOUA/MapServer/0`,
+            visible: false,
+          }
+        }
+      },
+      {
+        name: '长三角市级行政区划', alias: '长三角市级行政区划', key: '12',
+        target: { type: 'FeatureLayer',
+          options: {
+            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/CSJ_BOUA/MapServer/1`,
+            visible: false,
+            renderer: { type: 'simple', symbol: { type: 'simple-fill', color: [0, 0, 0, 0], outline: { color: 'white' } } }
+          }
+        }
+      },
+      {
+        name: '长三角2020年地表覆盖.png32', alias: '长三角2020年地表覆盖', key: '10',
         target: { type: 'ImageryLayer',
           options: {
-            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2000_CSJ/ImageServer`,
+            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2020_CSJ/ImageServer`,
             format: 'png32', visible: false,
           }
         }
       },
       {
-        name: '长三角2000年地表覆盖.tiff', alias: '长三角2000年地表覆盖', key: '7',
+        name: '长三角2020年地表覆盖.tiff', alias: '长三角2020年地表覆盖', key: '11',
         target: { type: 'ImageryLayer',
           options: {
-            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2000_CSJ/ImageServer`,
+            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2020_CSJ/ImageServer`,
             format: 'tiff', visible: false,
           }
         }
@@ -138,39 +157,20 @@ export default {
         }
       },
       {
-        name: '长三角2020年地表覆盖.png32', alias: '长三角2020年地表覆盖', key: '10',
+        name: '长三角2000年地表覆盖.png32', alias: '长三角2000年地表覆盖', key: '6',
         target: { type: 'ImageryLayer',
           options: {
-            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2020_CSJ/ImageServer`,
+            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2000_CSJ/ImageServer`,
             format: 'png32', visible: false,
           }
         }
       },
       {
-        name: '长三角2020年地表覆盖.tiff', alias: '长三角2020年地表覆盖', key: '11',
+        name: '长三角2000年地表覆盖.tiff', alias: '长三角2000年地表覆盖', key: '7',
         target: { type: 'ImageryLayer',
           options: {
-            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2020_CSJ/ImageServer`,
+            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/GLC30_Y2000_CSJ/ImageServer`,
             format: 'tiff', visible: false,
-          }
-        }
-      },
-      {
-        name: '长三角市级行政区划', alias: '长三角市级行政区划', key: '12',
-        target: { type: 'FeatureLayer',
-          options: {
-            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/CSJ_BOUA/MapServer/1`,
-            visible: false,
-            renderer: { type: 'simple', symbol: { type: 'simple-fill', color: [0, 0, 0, 0], outline: { color: 'white' } } }
-          }
-        }
-      },
-      {
-        name: '长三角省级行政区划', alias: '长三角省级行政区划', key: '13',
-        target: { type: 'FeatureLayer',
-          options: {
-            url: `${ARCGIS_SERVER_URL}/rest/services/GLC30/CSJ_BOUA/MapServer/0`,
-            visible: false,
           }
         }
       },

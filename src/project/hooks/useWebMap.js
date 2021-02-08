@@ -248,13 +248,14 @@ export function usePixelData (names) {
  * @param { import('../../wxz/gis/esri/map-tools/base-tool/base-tool').BaseTool } toolObject 工具对象
  */
 export function useCustomTool (toolKey, toolObject) {
-  const { mapTools, mapElementDisplay } = state.webMap
+  const { mapTools } = state.webMap
   if (!mapTools.hasTool(toolKey)) {
     mapTools.createCustomTool(toolKey, toolObject)
   }
   onUnmounted(() => {
+    toolObject.clearDrawed()
+    mapTools.deleteTool(toolKey)
     mapTools.setMapTool('')
-    mapElementDisplay.clear()
   })
   return [
     () => mapTools.setMapTool(toolKey),

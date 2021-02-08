@@ -5,9 +5,7 @@
     <UrbanizationStatLayerManager :layers="layers" />
     <UrbanizationStatOperation
       v-if="loaded"
-      :year2000="getPixelData(2000)"
-      :year2010="getPixelData(2010)"
-      :year2020="getPixelData(2020)"
+      :use-operation="useOperation"
     />
     <UrbanizationStatChart />
   </div>
@@ -23,7 +21,7 @@ import {
   UrbanizationStatOperation,
   UrbanizationStatChart,
 } from '../../components/project'
-import { useUrbanizationStatistics, useUrbanizationStatisticsLayers } from '../../project/hooks/useTopic'
+import { useUrbanizationStatistics } from '../../project/hooks/topic/useUrbanization'
 export default {
   name: 'UrbanizationStatistics',
   components: {
@@ -34,14 +32,8 @@ export default {
     UrbanizationStatChart,
   },
   setup () {
-    const [loaded, getPixelData] = useUrbanizationStatistics()
-    const layers = useUrbanizationStatisticsLayers()
 
-    return {
-      layers,
-      getPixelData,
-      loaded,
-    }
+    return useUrbanizationStatistics()
   }
 }
 </script>
