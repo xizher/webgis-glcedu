@@ -12,6 +12,8 @@ body {
 .app-container {
   @include size-conf(100vw, 100vh);
   background-color: $bg-color;
+  background-image: url(./images/background.png);
+  @include background-conf(no-repeat, center, 100% 100%);
 
   .map-box {
     @include size-conf(100%, 100%);

@@ -1,6 +1,6 @@
 <template>
   <panel-box
-    top="100px"
+    top="120px"
     left="100px"
   >
     <div

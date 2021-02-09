@@ -1,7 +1,7 @@
 <template>
   <panel-box
     bottom="50px"
-    right="50px"
+    right="120px"
   >
     <div
       class="ndbl-slider"

@@ -1,7 +1,7 @@
 <template>
   <panel-box
-    bottom="10px"
-    right="10px"
+    bottom="16px"
+    right="120px"
   >
     <div
       class="ubnzon-swipe"

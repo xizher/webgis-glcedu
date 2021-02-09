@@ -1,6 +1,6 @@
 <template>
   <panel-box
-    bottom="50px"
+    bottom="90px"
     left="50px"
   >
     <div class="ndbl-viewer">

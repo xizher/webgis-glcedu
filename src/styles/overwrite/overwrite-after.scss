@@ -1,3 +1,5 @@
+@import '../vars/vars';
+
 /*
  * 去除View容器触发鼠标焦点状态时产生的边框
  */
@@ -9,3 +11,64 @@
   }
 }
 
+
+.ant-slider-rail {
+  background-color: $deep-opacity-yellow;
+}
+
+.ant-slider:hover {
+  .ant-slider-rail {
+    background-color: $deep-yellow;
+  }
+}
+
+.ant-slider-dot {
+  background-color: $deep-orange;
+  border: none;
+}
+
+.ant-slider-vertical .ant-slider-handle {
+  @include size-conf(28px, 14px);
+  border-radius: 40%;
+  margin-left: -11px;
+  background-color: $deep-green;
+  border-color: $deeper-green;
+}
+
+.ant-slider:hover .ant-slider-handle:not(.ant-tooltip-open) {
+  border-color: $deeper-green;
+}
+
+.ant-slider-handle:focus {
+  border-color: $deeper-green;
+}
+
+.ant-slider-mark-text:nth-child(2n) {
+  left: -50px;
+}
+
+// .ant-btn, .ant-btn-default, .ant-btn:hover, .ant-btn:focus, .ant-btn:active, .ant-btn.active {
+//   background-color: transparent;
+//   background-image: url(./images/btn.png);
+//   @include background-conf(no-repeat, center, 100% 100%);
+//   border: none;
+// }
+
+.ant-btn,
+.ant-btn:focus,
+.ant-btn:hover {
+  background-image: url(./images/bg.png);
+  background-color: transparent;
+  color: black;
+  border: none;
+  // box-shadow: 0 2px 4px rgba(0, 0, 0, .8), 0 0 6px rgba(0, 0, 0, .04);
+}
+.ant-btn[disabled],
+.ant-btn[disabled]:hover {
+  background-color: transparent;
+}
+
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  background-color: $shallow-gray;
+  border: none;
+}
