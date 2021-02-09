@@ -3,6 +3,7 @@ import TopicHeaderPanel from './topic-header-panel/topic-header-panel.vue'
 import PanelBox from './panel-box/panel-box.vue'
 import MapTools from './map-tools/map-tools.vue'
 import LegendBox from './legend-box/legend-box.vue'
+import LoadingBox from './loading-box/loading-box.vue'
 
 export {
   BackToWelcomeView,
@@ -10,4 +11,5 @@ export {
   PanelBox,
   MapTools,
   LegendBox,
+  LoadingBox,
 }

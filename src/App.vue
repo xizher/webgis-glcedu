@@ -17,16 +17,18 @@
   </div>
   <MapTools v-if="loaded" />
   <LegendBox v-if="loaded" />
+  <LoadingBox />
 </template>
 
 <script>
 import { useCreateWebMap } from './project/hooks/useWebMap'
-import { MapTools, LegendBox } from './components/app'
+import { MapTools, LegendBox, LoadingBox } from './components/app'
 export default {
   name: 'App',
   components: {
     MapTools,
     LegendBox,
+    LoadingBox,
   },
   setup () {
     const [loaded, webMap] = useCreateWebMap()
