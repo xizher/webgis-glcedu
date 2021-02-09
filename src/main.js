@@ -4,6 +4,7 @@ import router from './router'
 import appConfig from './config/app.config'
 import { EsriModules } from './wxz/gis/esri'
 import Antd from 'ant-design-vue'
+import 'echarts-gl'
 import 'ant-design-vue/dist/antd.css'
 
 import './styles/overwrite/overwrite-before.scss'

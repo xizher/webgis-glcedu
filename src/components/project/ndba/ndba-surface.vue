@@ -18,7 +18,6 @@
 import {
   PanelBox
 } from '../../app'
-import 'echarts-gl'
 export default {
   name: 'NdbaSurface',
   components: {
