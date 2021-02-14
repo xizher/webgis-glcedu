@@ -13,7 +13,7 @@ body {
   @include size-conf(100vw, 100vh);
   background-color: $bg-color;
   background-image: url(./images/background.png);
-  @include background-conf(no-repeat, center, 100% 100%);
+  @include background-conf(no-repeat, center, 100% auto);
 
   .map-box {
     @include size-conf(100%, 100%);
