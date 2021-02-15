@@ -26,7 +26,7 @@
 <script>
 import { ref } from 'vue'
 import './legend-box.scss'
-import appConfig from '../../../config/app.config'
+import appConfig from '@/config/app.config'
 export default {
   name: 'LegendBox',
   setup () {

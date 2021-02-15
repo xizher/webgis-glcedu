@@ -13,7 +13,7 @@
 <script>
 import { } from 'vue'
 import './map-tools.scss'
-import { useWebMap } from '../../../project/hooks/useWebMap'
+import { useWebMap } from '@/project/hooks/useWebMap'
 export default {
   name: 'MapTools',
   setup () {

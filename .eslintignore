@@ -1,6 +1,6 @@
 public/*
 dist/*
-vue.config.js
+vite.config.js
 *.d.ts
 
 # src/ext

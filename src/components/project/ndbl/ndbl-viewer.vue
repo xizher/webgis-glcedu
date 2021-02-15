@@ -38,7 +38,7 @@ import { computed } from 'vue'
 import {
   PanelBox
 } from '../../app'
-import appConfig from '../../../config/app.config'
+import appConfig from '@/config/app.config'
 export default {
   name: 'NdblViewer',
   components: {

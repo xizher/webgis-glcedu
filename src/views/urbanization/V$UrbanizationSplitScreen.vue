@@ -11,10 +11,10 @@ import { } from 'vue'
 import {
   BackToWelcomeView,
   TopicHeaderPanel,
-} from '../../components/app'
+} from '@/components/app'
 import {
   UbnzonSplitScreen
-} from '../../components/project'
+} from '@/components/project'
 export default {
   name: 'UrbanizationSplitScreen',
   components: {

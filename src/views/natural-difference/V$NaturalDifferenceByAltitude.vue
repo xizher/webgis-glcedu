@@ -20,12 +20,12 @@
 import {
   BackToWelcomeView,
   TopicHeaderPanel,
-} from '../../components/app'
+} from '@/components/app'
 import {
   NdbaSurface,
   NdbaProfile,
-} from '../../components/project'
-import { useNaturalDifferenceByAltitude } from '../../project/hooks/topic/useNaturalDifference'
+} from '@/components/project'
+import { useNaturalDifferenceByAltitude } from '@/project/hooks/topic/useNaturalDifference'
 export default {
   name: 'NaturalDifferenceByAltitude',
   components: {

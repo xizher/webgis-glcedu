@@ -11,7 +11,7 @@
 
 <script>
 import { } from 'vue'
-import { useLoading } from '../../../project/hooks/useLoading'
+import { useLoading } from '@/project/hooks/useLoading'
 export default {
   name: 'LoadingBox',
   setup () {

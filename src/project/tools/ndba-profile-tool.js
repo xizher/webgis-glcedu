@@ -1,7 +1,7 @@
-import { DrawTool } from '../../wxz/gis/esri/map-tools/tools/draw-tool/draw-tool'
-import { BaseUtils } from '../../wxz/js-utils'
-import appConfig from '../../config/app.config'
-import { EChartsHelper } from '../../wxz/echarts-helper/echarts-hepler'
+import { DrawTool } from '@/wxz/gis/esri/map-tools/tools/draw-tool/draw-tool'
+import { BaseUtils } from '@/wxz/js-utils'
+import appConfig from '@/config/app.config'
+import { EChartsHelper } from '@/wxz/echarts-helper/echarts-hepler'
 
 export class NdbaProfileTool extends DrawTool {
 

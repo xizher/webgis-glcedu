@@ -23,12 +23,12 @@
 import {
   BackToWelcomeView,
   TopicHeaderPanel,
-} from '../../components/app'
+} from '@/components/app'
 import {
   NdblSlider,
   NdblViewer,
-} from '../../components/project'
-import { useNaturalDifferenceByLongitude } from '../../project/hooks/topic/useNaturalDifference'
+} from '@/components/project'
+import { useNaturalDifferenceByLongitude } from '@/project/hooks/topic/useNaturalDifference'
 export default {
   name: 'NaturalDifferenceByLongitude',
   components: {

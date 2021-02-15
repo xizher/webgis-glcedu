@@ -15,13 +15,13 @@
 import {
   BackToWelcomeView,
   TopicHeaderPanel,
-} from '../../components/app'
+} from '@/components/app'
 import {
   UrbanizationStatLayerManager,
   UrbanizationStatOperation,
   UrbanizationStatChart,
-} from '../../components/project'
-import { useUrbanizationStatistics } from '../../project/hooks/topic/useUrbanization'
+} from '@/components/project'
+import { useUrbanizationStatistics } from '@/project/hooks/topic/useUrbanization'
 export default {
   name: 'UrbanizationStatistics',
   components: {

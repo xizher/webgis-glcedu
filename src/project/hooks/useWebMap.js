@@ -11,8 +11,8 @@ import {
   MapTools,
   esri,
   Highlight,
-} from '../../wxz/gis/esri'
-import appConfig from '../../config/app.config'
+} from '@/wxz/gis/esri'
+import appConfig from '@/config/app.config'
 import { useLoading } from './useLoading'
 
 /**
@@ -123,7 +123,7 @@ export function usePixelData (names) {
 /**
  * 创建自定义工具
  * @param { string } toolKey 工具名
- * @param { import('../../wxz/gis/esri/map-tools/base-tool/base-tool').BaseTool } toolObject 工具对象
+ * @param { import('@/wxz/gis/esri/map-tools/base-tool/base-tool').BaseTool } toolObject 工具对象
  */
 export function useCustomTool (toolKey, toolObject) {
   const { mapTools } = state.webMap

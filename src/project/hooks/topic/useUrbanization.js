@@ -1,5 +1,5 @@
 import { computed, onMounted, onUnmounted, reactive, ref, watch, watchEffect } from 'vue'
-import { esri } from '../../../wxz/gis/esri'
+import { esri } from '@/wxz/gis/esri'
 import { UbnzonStatTool } from '../../tools/ubnzon-stat-tool'
 import { useWebMap, useLayersVisible, usePixelData, useCustomTool } from '../useWebMap'
 
@@ -74,7 +74,7 @@ export function useUrbanizationSplitSceen () {
     // })
 
     /**
-     * @param { [import('../../../wxz/gis/esri').$View, import('../../../wxz/gis/esri').$View, import('../../../wxz/gis/esri').$View] } views
+     * @param { [import('@/wxz/gis/esri').$View, import('@/wxz/gis/esri').$View, import('@/wxz/gis/esri').$View] } views
      */
     function setInteractiveHandler (views) {
       const handlers = views.map(view => {

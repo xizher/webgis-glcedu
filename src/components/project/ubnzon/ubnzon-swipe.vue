@@ -53,7 +53,7 @@
 import {
   PanelBox
 } from '../../app'
-import { useUrbanizationSwipe } from '../../../project/hooks/topic/useUrbanization'
+import { useUrbanizationSwipe } from '@/project/hooks/topic/useUrbanization'
 import { toRefs } from 'vue'
 export default {
   name: 'UbnzonSwipe',

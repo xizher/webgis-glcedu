@@ -1,9 +1,9 @@
 import { computed, onUnmounted, reactive, ref, toRaw, toRefs, watch } from 'vue'
 import { useLayersVisible, usePixelData, useWebMap, useCustomTool } from '../useWebMap'
-import appConfig from '../../../config/app.config'
-import { useECharts } from '../../../wxz/echarts-helper/echarts-hooks'
+import appConfig from '@/config/app.config'
+import { useECharts } from '@/wxz/echarts-helper/echarts-hooks'
 import { NdbaProfileTool } from '../../tools/ndba-profile-tool'
-import { $ext } from '../../../wxz/js-ext'
+import { $ext } from '@/wxz/js-ext'
 
 export function useNaturalDifferenceByLongitude () {
   const { esriExt, view, esriUtils } = useWebMap()

@@ -23,8 +23,8 @@
 
 <script>
 import { watch, ref, onUnmounted } from 'vue'
-import { useWebMap } from '../../../project/hooks/useWebMap'
-import { esri } from '../../../wxz/gis/esri'
+import { useWebMap } from '@/project/hooks/useWebMap'
+import { esri } from '@/wxz/gis/esri'
 import {
   PanelBox
 } from '../../app'

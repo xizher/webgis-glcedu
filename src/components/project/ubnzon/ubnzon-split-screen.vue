@@ -6,7 +6,7 @@
 
 <script>
 import { } from 'vue'
-import { useUrbanizationSplitSceen } from '../../../project/hooks/topic/useUrbanization'
+import { useUrbanizationSplitSceen } from '@/project/hooks/topic/useUrbanization'
 export default {
   name: 'UbnzonSplitScreen',
   setup () {

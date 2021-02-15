@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import { useCreateWebMap } from './project/hooks/useWebMap'
-import { MapTools, LegendBox, LoadingBox } from './components/app'
+import { useCreateWebMap } from '@/project/hooks/useWebMap'
+import { MapTools, LegendBox, LoadingBox } from '@/components/app'
 export default {
   name: 'App',
   components: {

@@ -1,5 +1,5 @@
 import { createRouter, createMemoryHistory } from 'vue-router'
-import { useWebMap } from '../project/hooks/useWebMap'
+import { useWebMap } from '@/project/hooks/useWebMap'
 
 /**
  * @type { import('vue-router').RouteRecordRaw[] }
@@ -8,35 +8,35 @@ const routes = [
   {
     path: '/',
     name: 'Welcome',
-    component: () => import('../views/V$Welcome.vue')
+    component: () => import('@/views/V$Welcome.vue')
   }, {
     path: '/natural-difference',
     name: 'NaturalDifference',
-    component: () => import('../views/natural-difference/V$NaturalDifference.vue')
+    component: () => import('@/views/natural-difference/V$NaturalDifference.vue')
   }, {
     path: '/natural-difference-longitude',
     name: 'NaturalDifferenceByLongitude',
-    component: () => import('../views/natural-difference/V$NaturalDifferenceByLongitude.vue')
+    component: () => import('@/views/natural-difference/V$NaturalDifferenceByLongitude.vue')
   }, {
     path: '/natural-difference-altitude',
     name: 'NaturalDifferenceByAltitude',
-    component: () => import('../views/natural-difference/V$NaturalDifferenceByAltitude.vue')
+    component: () => import('@/views/natural-difference/V$NaturalDifferenceByAltitude.vue')
   }, {
     path: '/urbanization',
     name: 'Urbanization',
-    component: () => import('../views/urbanization/V$Urbanization.vue')
+    component: () => import('@/views/urbanization/V$Urbanization.vue')
   }, {
     path: '/urbanization-statistics',
     name: 'UrbanizationStatistics',
-    component: () => import('../views/urbanization/V$UrbanizationStatistics.vue')
+    component: () => import('@/views/urbanization/V$UrbanizationStatistics.vue')
   }, {
     path: '/urbanization-swipe',
     name: 'UrbanizationSwipe',
-    component: () => import('../views/urbanization/V$UrbanizationSwipe.vue')
+    component: () => import('@/views/urbanization/V$UrbanizationSwipe.vue')
   }, {
     path: '/urbanization-split-screen',
     name: 'UrbanizationSplitScreen',
-    component: () => import('../views/urbanization/V$UrbanizationSplitScreen.vue')
+    component: () => import('@/views/urbanization/V$UrbanizationSplitScreen.vue')
   }
 ]
 

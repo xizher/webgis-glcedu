@@ -27,8 +27,8 @@
 import {
   BackToWelcomeView,
   TopicHeaderPanel,
-} from '../../components/app'
-import useNaturalDifference from '../../project/hooks/topic/useNaturalDifference'
+} from '@/components/app'
+import useNaturalDifference from '@/project/hooks/topic/useNaturalDifference'
 import { useRouter } from 'vue-router'
 export default {
   name: 'NaturalDifference',

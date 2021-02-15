@@ -23,9 +23,9 @@ import { } from 'vue'
 import {
   BackToWelcomeView,
   TopicHeaderPanel,
-} from '../../components/app'
+} from '@/components/app'
 import { useRouter } from 'vue-router'
-import useUrbanization from '../../project/hooks/topic/useUrbanization'
+import useUrbanization from '@/project/hooks/topic/useUrbanization'
 export default {
   name: 'Urbanization',
   components: {

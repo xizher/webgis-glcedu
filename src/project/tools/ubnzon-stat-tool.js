@@ -1,6 +1,6 @@
-import { DrawTool } from '../../wxz/gis/esri/map-tools/tools/draw-tool/draw-tool'
-import appConfig from '../../config/app.config'
-import { useECharts } from '../../wxz/echarts-helper/echarts-hooks'
+import { DrawTool } from '@/wxz/gis/esri/map-tools/tools/draw-tool/draw-tool'
+import appConfig from '@/config/app.config'
+import { useECharts } from '@/wxz/echarts-helper/echarts-hooks'
 
 export class UbnzonStatTool extends DrawTool {
 
