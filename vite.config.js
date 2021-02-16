@@ -15,6 +15,16 @@ export default defineConfig ({
   alias: {
     '@': path.resolve(__dirname, 'src')
   },
+  optimizeDeps: {
+    include: [
+      'ol/Map', 'ol/View',
+      'ol/source/XYZ',
+      'ol/layer/Tile',
+      'ol/layer/Group',
+      'ol/source/OSM',
+      'ol/Collection',
+    ]
+  },
   plugins: [
     vue(),
     // babel({

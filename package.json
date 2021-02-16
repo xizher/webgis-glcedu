@@ -10,6 +10,7 @@
     "echarts": "^4.9.0",
     "echarts-gl": "^1.1.2",
     "esri-loader": "^3.0.0",
+    "ol": "^6.5.0",
     "vue": "^3.0.4",
     "vue-router": "^4.0.3"
   },

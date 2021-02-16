@@ -6,6 +6,7 @@ import { EsriModules } from './wxz/gis/esri'
 import Antd from 'ant-design-vue'
 import 'echarts-gl'
 import 'ant-design-vue/dist/antd.css'
+import 'ol/ol.css'
 
 import './styles/overwrite/overwrite-before.scss'
 import './styles/layout/layout.scss'

@@ -1,19 +1,20 @@
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
-import {
-  WebMap,
-  EsriUtils,
-  esriExt,
-  esriHooks,
-  Basemap,
-  LayerOperation,
-  MapCursor,
-  MapElementDisplay,
-  MapTools,
-  esri,
-  Highlight,
-} from '@/wxz/gis/esri'
+// import {
+//   WebMap,
+//   EsriUtils,
+//   esriExt,
+//   esriHooks,
+//   Basemap,
+//   LayerOperation,
+//   MapCursor,
+//   MapElementDisplay,
+//   MapTools,
+//   esri,
+//   Highlight,
+// } from '@/wxz/gis/esri'
 import appConfig from '@/config/app.config'
 import { useLoading } from './useLoading'
+import { WebMap, Basemap } from '../../wxz/gis/ol'
 
 /**
  * 状态
@@ -30,24 +31,27 @@ const state = {
  * 初始化钩子
  */
 export function useCreateWebMap () {
-  esri.config.request.timeout = 600000
+  // esri.config.request.timeout = 600000
   const [, setLoading] = useLoading(true)
   const loaded = ref(false)
-  const webMap = new WebMap('webmap-container', appConfig.webMapOptions)
-  webMap.on('mounted', () => loaded.value = true)
+  // const webMap = new WebMap('webmap-container', appConfig.webMapOptions)
+  const webMap = new WebMap('webmap-container')
+  // webMap.on('mounted', () => loaded.value = true)
   onMounted(() => {
     state.webMap = webMap
-      .use(EsriUtils)
-      .use(esriExt)
-      .use(esriHooks)
-      .use(new Basemap(appConfig.basemapOptions))
-      .use(new LayerOperation(appConfig.layerOperationOptions))
-      .use(new MapCursor())
-      .use(new MapElementDisplay())
-      .use(new MapTools())
-      .use(new Highlight())
+      .use(new Basemap({ key : '彩色地图' }))
+      // .use(EsriUtils)
+      // .use(esriExt)
+      // .use(esriHooks)
+      // .use(new Basemap(appConfig.basemapOptions))
+      // .use(new LayerOperation(appConfig.layerOperationOptions))
+      // .use(new MapCursor())
+      // .use(new MapElementDisplay())
+      // .use(new MapTools())
+      // .use(new Highlight())
       .mount()
     setLoading(false)
+    loaded.value = true
   })
   return [loaded, webMap]
 }
