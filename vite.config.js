@@ -17,12 +17,22 @@ export default defineConfig ({
   },
   optimizeDeps: {
     include: [
-      'ol/Map', 'ol/View',
+      'ol/Map',
+      'ol/View',
+      'ol/Feature',
+      'ol/Collection',
       'ol/source/XYZ',
+      'ol/source/OSM',
+      'ol/source/Vector',
       'ol/layer/Tile',
       'ol/layer/Group',
-      'ol/source/OSM',
-      'ol/Collection',
+      'ol/layer/Base',
+      'ol/layer/Vector',
+      'ol/geom/Geometry',
+      'ol/geom/Point',
+      'ol/format/GeoJSON',
+      'ol/style',
+      'ol/interaction/DragPan',
     ]
   },
   plugins: [

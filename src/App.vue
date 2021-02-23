@@ -18,6 +18,10 @@
   <MapTools v-if="loaded" />
   <LegendBox v-if="loaded" />
   <LoadingBox />
+  <div
+    id="hawkeye-container"
+    class="hawkeye-container"
+  />
 </template>
 
 <script>
@@ -40,3 +44,13 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.hawkeye-container {
+  position: fixed;
+  right: 8px;
+  top: 8px;
+  height: 200px;
+  width: 400px;
+}
+</style>

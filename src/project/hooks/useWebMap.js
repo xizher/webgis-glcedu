@@ -14,7 +14,7 @@ import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 // } from '@/wxz/gis/esri'
 import appConfig from '@/config/app.config'
 import { useLoading } from './useLoading'
-import { WebMap, Basemap } from '../../wxz/gis/ol'
+import { WebMap, Basemap, OlHooks, MapElementDisplay, Hawkeye } from '../../wxz/gis/ol'
 
 /**
  * 状态
@@ -40,6 +40,9 @@ export function useCreateWebMap () {
   onMounted(() => {
     state.webMap = webMap
       .use(new Basemap({ key : '彩色地图' }))
+      .use(new OlHooks())
+      .use(new MapElementDisplay())
+      .use(new Hawkeye('hawkeye-container'))
       // .use(EsriUtils)
       // .use(esriExt)
       // .use(esriHooks)
