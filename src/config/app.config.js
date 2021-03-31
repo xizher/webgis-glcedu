@@ -1,5 +1,5 @@
-const ARCGIS_JS_API = 'http://localhost/arcgis/api/4.17'
-const ARCGIS_SERVER_URL = 'http://192.168.65.130:6080/arcgis'
+const ARCGIS_JS_API = 'http://192.168.0.105/arcgis/api/4.17'
+const ARCGIS_SERVER_URL = 'http://192.168.65.134:6080/arcgis'
 
 export default {
   apiConfig: {
